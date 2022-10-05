@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Financial Health and Wealth Dashboard</title>
+
+  <!--social metas-->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@urbaninstitute">  
+  <meta name="twitter:creator" content="@urbaninstitute">  
+  <meta name="twitter:title" content="Financial Health and Wealth Dashboard">  
+  <meta name="twitter:description" content="This dashboard illustrates financial health and wealth across cities and states and by race and ethnicity, where data are available.">  
+  <meta name="twitter:image" content="https://apps.urban.org/features/financial-health-wealth-dashboard/img/social.jpeg">  
+  <meta property="og:title" content="Financial Health and Wealth Dashboard" />
+  <meta property="og:description" content="This dashboard illustrates financial health and wealth across cities and states and by race and ethnicity, where data are available." />  
+  <meta property="og:image" content="https://apps.urban.org/features/financial-health-wealth-dashboard/img/social.jpeg" />  
+  <meta property="og:image:type" content="image/jpeg">  
+  <meta property="og:url" content="https://urbn.is/3DKam1u">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="css/jquery-ui.css" type="text/css">
+
+  <!--for the header-->
+  <link rel="stylesheet" href="css/urban-header.css" type="text/css">
+
+  <!--project style sheet-->
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Financial Health and Wealth Dashboard",
+      "url": "https://apps.urban.org/features/financial-health-wealth-dashboard/",
+      "thumbnailUrl": "https://apps.urban.org/features/financial-health-wealth-dashboard/img/social.jpeg",
+      "dateCreated": "2022-10-05T04:00:00.000Z",
+      "articleSection": "Interactive Feature",
+      "creator": ["Mingli Zhong","Aaron R. Williams","Alex Carther","Breno Braga","Signe-Mary McKernan","Oriya Cohen","Catherine Harvey","Courtney Jones","Christina Baird","Alice Feng","Liza Hagerman","Serena Lei"],
+      "keywords": ["Finance","Income and Wealth","Neighborhoods, Cities, and Metros"]
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MKBD2W');</script> -->
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKBD2W"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <!-- End Google Tag Manager (noscript) -->
+
+  <header id="header-pinned" class="no-touch">
+    <div class="header-container">
+      <a target="_blank" href="https://www.urban.org" title="Home" rel="home" class="site-logo"></a>
+      <div class="title">Financial Health and Wealth Dashboard</div>
+    </div>
+  </header>
+
+  <div class="main">
+
+    <section class="intro">
+
+      <h1>Financial Health and Wealth Dashboard</h1>
+
+      <h2>A local picture of residents’ financial well-being</h2>
+
+      <div class="date">Oct XX, 2022</div>
+
+      <hr>
+
+      <div class="social">
+        <ul>
+          <li>
+            <a href="https://twitter.com/intent/tweet?text=To%20help%20local%20leaders%20target%20solutions%2C%20this%20%40urbaninstitute%20dashboard%20illustrates%20financial%20health%20%26%20wealth%20across%20cities%20%26%20states%20%26%20by%20race%20%26%20ethnicity%2C%20where%20data%20are%20available.%20https%3A%2F%2Furbn.is%2F3DKam1u">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0758 24C12.947 24 14.036 23.8367 15.3427 23.51C18.1585 22.6232 20.3831 21.0131 22.0165 18.6796C23.3388 16.3695 24 14.3588 24 12.6475V11.5041C24 8.55615 22.6777 5.7404 20.0331 3.05688C17.544 1.01896 14.9616 0 12.2859 0H11.7958C8.96451 0 6.26544 1.1123 3.69859 3.3369C1.23286 5.95819 0 8.84784 0 12.0058C0 14.9616 1.08896 17.684 3.26689 20.1731C5.83374 22.7244 8.74672 24 12.0058 24H12.0758ZM10.4423 17.1862C9.46223 17.1862 8.30326 16.879 6.96539 16.2645V16.1245H7.38542C8.30326 16.1245 9.22888 15.8406 10.1623 15.2727V15.0627C9.33 15.0627 8.64162 14.5649 8.09714 13.5693V13.4293L8.45883 13.4993H8.80885L8.94886 13.4293C7.76656 12.7759 7.17541 11.9942 7.17541 11.0841V11.0141C7.50987 11.2008 7.84045 11.2941 8.16714 11.2941V11.2241C7.56821 10.6174 7.23763 10.0729 7.17541 9.59068V8.73895C7.36209 8.4356 7.45543 8.24503 7.45543 8.16725H7.5371L8.52883 9.08898C9.59446 9.92904 10.8701 10.4502 12.3558 10.6524C12.4569 10.6524 12.5074 10.6058 12.5074 10.5124V9.9407C12.5074 9.55957 12.5774 9.25232 12.7175 9.01897C13.1997 8.12447 13.8375 7.67721 14.6309 7.67721H15.2026C15.6304 7.72388 16.1049 7.96112 16.6261 8.38893H16.8361C16.9839 8.38893 17.4078 8.2217 18.1078 7.88723H18.1778V7.95723C17.96 8.40838 17.6295 8.76229 17.1861 9.01897L17.2561 9.17065C17.7461 9.06953 18.1273 8.94897 18.3995 8.80896V8.87896C18.3917 8.96453 18.0106 9.369 17.2561 10.0924V10.5824C17.2561 11.8814 16.735 13.2543 15.6927 14.701C14.2459 16.3578 12.4958 17.1862 10.4423 17.1862Z" fill="black"/>
+                </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//urbn.is/3DKam1u">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1396 24C12.9768 24 14.1356 23.8101 15.6163 23.4303C18.5387 22.4225 20.7907 20.6241 22.3721 18.0349C23.4574 15.9341 24 14.0852 24 12.4883V11.5C24 11.2675 23.9303 10.721 23.7907 9.86045C23.6047 8.03875 22.5852 6.0039 20.7325 3.75582C18.0969 1.25194 15.3062 0 12.3604 0H11.6396C10.8024 0 9.8101 0.162791 8.6628 0.488372C5.593 1.50388 3.3217 3.2093 1.84883 5.60465C0.918605 7.031 0.302325 8.89925 0 11.2093C0.0465117 11.2093 0.0697675 11.2365 0.0697675 11.2907C0.0232558 11.3682 0 11.4613 0 11.5697V11.7093C0 14.9728 1.1124 17.8372 3.33721 20.3023C5.95735 22.7674 8.79845 24 11.8604 24H12.1396ZM12.6396 19.3139H10.1163L10.0814 18.8837V12.779C10.0117 12.6318 9.94185 12.5582 9.8721 12.5582H8.6628V10.0814H9.8721C10.0117 10.0039 10.0814 9.93025 10.0814 9.86045L10.0117 7.6628C10.1047 7.1589 10.1976 6.77905 10.2907 6.52325C10.7868 5.29845 11.8527 4.68605 13.4883 4.68605H13.8489C14.8411 4.68605 15.3372 4.75582 15.3372 4.89535V7.02325H13.9186C13.0659 7.1008 12.6396 7.5039 12.6396 8.23255V9.94185C12.6396 10.0349 12.686 10.0814 12.779 10.0814H15.1976V10.221C15.0504 11.779 14.9303 12.5582 14.8372 12.5582H12.779C12.7015 12.5582 12.6551 12.6086 12.6396 12.7093V19.3139Z" fill="black"/>
+                </svg>
+            </a>
+          </li>
+          <li>
+            <a href='mailto:%20?Subject=New Urban Institute interactive&amp;Body=Hi! I thought you'd be interested in this new interactive from the Urban Institute: "Financial Health and Wealth Dashboard: A local picture of residents’ financial well-being" https://urbn.is/3DKam1u'>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12.8926 0.0991211C14.876 0.0991211 17.2562 1.09086 19.8347 2.87598C22.6116 5.45449 24 8.62805 24 11.9999C24 15.9669 22.2149 19.3388 18.843 21.9173C16.6612 23.3057 14.4793 23.9008 12.0992 23.9008C7.73554 23.9008 4.36364 21.9173 1.78512 17.9504C0.595041 16.1652 0 14.1818 0 11.9999C0 8.23135 1.58678 4.85945 4.95868 2.28094C6.7438 1.09086 8.72727 0.297468 10.7107 0.0991211H12.8926V0.0991211ZM5.35537 8.62805V16.3636C5.35537 16.7603 5.75207 17.157 6.14876 17.157H17.8512C18.2479 17.157 18.6446 16.7603 18.6446 16.3636V8.62805C18.6446 8.4297 18.4463 8.03301 18.2479 7.83466H5.75207C5.55372 8.23135 5.35537 8.4297 5.35537 8.62805ZM6.14876 8.62805C6.7438 9.02474 8.13223 10.0165 10.5124 12.1983C10.9091 12.595 11.5041 12.9917 11.9008 13.3884C13.8843 11.8016 15.6694 10.2148 17.2562 8.82639V9.02474C16.6612 9.81813 15.6694 10.8099 14.4793 11.9999L17.8512 16.1652V16.3636L13.8843 12.3966C13.8843 12.595 13.2893 13.19 12.0992 14.3801L9.91736 12.3966C8.52893 13.7851 7.33884 14.9752 5.95041 16.3636V16.1652L9.52066 11.9999C9.12397 11.6033 8.13223 10.4132 6.14876 8.62805Z" fill="black"/>
+                </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <p>City and community leaders from government, philanthropy, and practice can make a difference in residents’ financial lives. They have the tools, policy and program levers, and decisionmaking power to influence financial well-being at the local level and help narrow the racial wealth gap.</p>
+      <p>To help local leaders target their solutions, our dashboard illustrates financial health and wealth across cities and states and by race and ethnicity, where data are available.</p>
+      <p>We looked beyond income to include credit, debt, savings, assets, and wealth. Local solutions can tackle these multiple facets of financial well-being, as well as the structural barriers that created—and continue to reinforce—racial wealth inequities.</p>
+
+    </section>
+
+    <section class="howToUse">
+      <h2>How to use this dashboard</h2>
+      <p>To drill down to the local level, we provide financial health and wealth measures by <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-areas/pumas.html" target="_blank">Public Use Microdata Areas</a> (PUMAs), which divide states into areas containing no fewer than 100,000 people.</p>
+      <p>You can use the map to find and select a PUMA, or you can search for a city or zip code to select a PUMA.</p>
+      <div class="bonusData">Bonus data: Racially disaggregated city-level metrics are available for cities large enough to have more than one PUMA. Those cities will be marked in the search box with an asterisk; a full list is available in the <a href="#" target="_blank">technical appendix</a>.</div>
+    </section>
+
+
+    <section class="map" id="mapSection">
+      <div class="searchbox">
+        <input id="locationSearch" placeholder="Search for a city or zip code to locate a PUMA" autocomplete="off">
+      </div>
+
+      <div class="searchResults">
+        <div class="spacer invisible"></div>
+        <div>
+          <p class="zipCodeLocated hidden">Your zip code is located in or near the following PUMA:</p>
+          <h3 class="geoName"></h3>
+          <p class="numPumasInGeo"><span class="text"></span><span class="hasBonusData hidden"> and has <span class="highlight">bonus data.</span></span></p>
+        </div>
+        <button class="openModalBtn invisible">Bonus city data</button>
+      </div>
+
+      <div class="mapContainer">
+        <div id="map"></div>
+        <div class="instructions">Hover over a PUMA to select it</div>
+        <div class="panel">              
+          <div class="legend"></div>
+
+          <div class="metric">
+            <label for="metric-select">Select a metric:</label>
+
+            <select name="metrics" id="metric-select" autocomplete="off">
+              <option value="has_delinq_pct">Residents with delinquent debt</option>
+              <option value="share_of_student_loan_holders_with_delinquent_student_loans">Student loan holders with delinquent student loan debt</option>
+              <option value="share_of_low_income_households_with_housing_cost_burden">Low-income households with housing-cost burden</option>
+              <option value="at least 2000 emergency savings">Households with at least $2,000 in emergency savings (estimated)</option>
+              <option value="score_cleanpos_p50">Median credit score</option>
+              <option value="had_foreclosure_2yr_pct">Mortgage holders who had a foreclosure in the past two years</option>
+              <option value="share_of_people_with_health_insurance">Residents with health insurance coverage</option>
+              <option value="median net worth" selected>Median net worth (estimated)</option>
+              <option value="homeownership_rate">Homeownership rate</option>
+              <option value="median_home_value_among_homeowners">Median home value among homeowners</option>
+            </select>
+
+            <div class="pumaName hidden"></div>
+            <div class="metricValue hidden"></div>
+            <div class="metricName hidden"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="wrapper footnote">
+        <button class="clearSelection disabled">Clear PUMA selection</button>
+        <div>This map displays <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-areas/pumas.html" target="_blank">PUMAs</a>, which divide states into areas containing no fewer than 100,000 people.</div>
+      </div>
+    </section>
+
+    <section class="buttons disabled">
+      <a href="" target="_blank">
+        <button>
+          <span>Print</span>
+          <img src="img/print.svg" alt="">
+          <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" fill="url(#pattern0)" />
+            <defs>
+              <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1" stroke="black">
+                <use xlink:href="#image0_895_13573" transform="scale(0.00195312)"/>
+              </pattern>
+              <image id="image0_895_13573" width="512" height="512" xlink:href="data:image/png;base64,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"/>
+            </defs>
+          </svg>           -->
+        </button>
+      </a>
+    </section>
+
+    <section class="populationRaceEthnicity">
+      <h4>Population by race and ethnicity</h4>
+      <div class="chartWrapper">
+        <div class="chart puma hidden">
+          <h6>PUMA</h6>
+        </div>
+        <div class="chart state hidden">
+          <h6>State</h6>
+        </div>
+        <div class="chart national">
+          <h6>National</h6>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard inactive">
+      <h2>Financial Health Metrics</h2>
+      <h3 class="hidden">for <span class="pumaName"></span></h3>
+      <p>We <a href="https://www.urban.org/urban-wire/family-financial-security-takes-more-steady-paycheck" target="_blank">define financial health</a> as people’s ability to manage their daily finances, be resilient to economic shocks, and pursue opportunities for upward mobility.</p>
+
+      <div>
+        <div class="tabWrapper">
+          <button class="dailyFinances active" value="dailyFinances">Daily finances</button>
+          <button class="economicResilience" value="economicResilience">Economic resilience</button>
+          <button class="upwardMobility" value="upwardMobility">Upward mobility</button>
+        </div>
+
+        <div class="tabContent dailyFinances active">
+          <h4>Daily Finances</h4>
+          <p>These metrics are signs of financial distress or illustrate residents’ financial burdens, which can make it hard for households to manage their daily finances.</p>
+
+          <div class="metricContainer">
+            <div class="cover">
+              <p><a href="#mapSection">To see metrics, use the map to select a PUMA</a></p>
+            </div>
+            
+            <div class="metricsWrapper hidden">
+              <div class="metric delinquentDebt">
+                <h6>Residents with delinquent debt</h6>
+                <div class="tooltip">i
+                  <span class="tooltipText">
+                    Delinquent debt is debt that is at least 60 days past due.
+                  </span>
+                </div>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+
+              <div class="metric delinquentStudentLoanDebt">
+                <h6>Student loan holders with delinquent student loan debt</h6>
+                <div class="tooltip">i
+                  <span class="tooltipText">
+                    Delinquent student loan debt is debt that is at least 60 days past due.
+                  </span>
+                </div>
+                <p class="metricValue"></p>
+              </div>
+            
+              <div class="metric lowIncomeHhldsHousingCostBurden">
+                <h6>Low-income households with housing-cost burden</h6>
+                <div class="tooltip">i
+                  <span class="tooltipText">
+                    Households that pay more than 30 percent of their income on housing are considered “cost burdened.”
+                  </span>
+                </div>
+                <p class="metricValue"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="solutionsContainer">
+            <h5>STRATEGIES FOR LOCAL LEADERS</h5>
+            <div class="solutionsWrapper">
+              <div class="solution">
+                <h6>Ensure family-sustaining wages</h6>
+                <p>Black and Hispanic workers and women are overrepresented in temporary and precarious jobs and underrepresented in jobs that provide family-sustaining wages and benefits like health insurance, retirement savings options, and <a href="https://www.abetterbalance.org/paid-sick-time-laws/" target="_blank">paid sick time</a> and <a href="https://www.abetterbalance.org/resources/paid-family-leave-laws-chart/" target="_blank">paid family and medical leave</a>. This occupational segregation is the result of persistent discrimination in hiring and geographic mismatches between where people of color live and where good jobs are located. Local leaders have the power to raise the wage floor in their cities, enact universal paid leave policies, and require public works projects to hire residents facing barriers to employment. Some cities have experimented with <a href="https://www.economicsecurityproject.org/guaranteedincome/" target="_blank">guaranteed income programs</a> and one-time cash payments for workers in essential occupations, such as <a href="https://www.washingtonpost.com/dc-md-va/2022/02/01/childcare-workers-checks-dc-council/" target="_blank">child care</a>, where wages are especially low.</p>
+              </div>
+              <div class="solution">
+                <h6>Help residents avoid and manage debt</h6>
+                <p>Too much personal debt wreaks havoc on family finances and can potentially lead to <a href="https://www.urban.org/research/publication/making-case-link-between-residents-financial-health-and-cities-inclusive-growth" target="_blank">lower city revenue</a> in the form of unpaid public utility bills, unpaid property taxes, and evictions. City leaders can first “do no harm” by ensuring that residents with debt are not penalized when applying for job certifications and business licenses, which offer opportunities for upward mobility. Several cities have also reformed the <a href="https://finesandfeesjusticecenter.org/articles/local-policy-guide-fee-elimination-and-debt-relief/" target="_blank">fines and fees</a> levied by their criminal legal systems and traffic courts, which have been shown significantly harm  households of color and households with low incomes. Finally, cities can <a href="https://www.afcpe.org/" target="_blank">train employees</a> to provide easy on-ramps to relevant, free, and <a href="https://change-machine.org/platform/" target="_blank">timely financial coaching programs</a> for <a href="https://prosperitynow.org/blog/building-financial-capability-planning-guide-integrated-services" target="_blank">residents seeking services</a> such as subsidized child care and housing assistance.</p>
+              </div>
+              <div class="solution">
+                <h6>Improve access to financial institutions</h6>
+                <p>To counter the lasting harm of redlining and other policies and practices that stripped wealth from neighborhoods of color, city leaders can strive to attract and partner with <a href="https://www.urban.org/policy-centers/cross-center-initiatives/community-economic-development-hub/projects/community-development-financial-institutions" target="_blank">community development financial institutions</a>, <a href="https://www.inclusiv.org/about-us/what-is-a-cdcu/" target="_blank">community development credit unions</a>, and <a href="https://www.fdic.gov/regulations/resources/minority/mdi.html" target="_blank">minority depository institutions</a>, whose missions are to serve people with low-to-moderate incomes and underserved Black, Hispanic, Native American, and Asian American communities. Cities may also opt to join one of nearly 100 <a href="https://joinbankon.org/" target="_blank">BankOn coalitions</a> to connect local residents to affordable, secure financial transaction accounts offered without overdraft fees.</p>
+              </div>
+              <div class="solution">
+                <h6>Produce and preserve affordable housing</h6>
+                <p>The US has a <a href="https://www.jchs.harvard.edu/sites/default/files/reports/files/Harvard_JCHS_State_Nations_Housing_2022.pdf" target="_blank">nationwide shortage of affordable and available housing</a> for homebuyers and renters. Local leaders can encourage the production of new affordable units by adopting inclusionary and <a href="https://www.urban.org/urban-wire/how-communities-are-rethinking-zoning-improve-housing-affordability-and-access-opportunity" target="_blank">streamlined zoning</a> and land use policies. They can also explore policy solutions to increase housing supply, such as <a href="https://www.urban.org/urban-wire/how-communities-are-rethinking-zoning-improve-housing-affordability-and-access-opportunity" target="_blank">density bonuses</a>, <a href="https://www.huduser.gov/portal/rbc/home.html" target="_blank">reduced regulatory barriers</a>, land value taxation, and equitable <a href="https://www.urban.org/research/publication/how-can-cities-create-more-equitable-transportation-systems" target="_blank">transit-oriented development</a>. Local leaders can also <a href="https://www.urban.org/urban-wire/preserving-affordable-housing-what-works" target="_blank">preserve existing affordable units</a> by tracking and targeting buildings <a href="https://greaterdc.urban.org/blog/cataloging-where-dc-should-preserve-affordable-housing-citys-population-continues-grow" target="_blank">with subsidies set to expire</a>, offering financial support to small landlords who wish to preserve their units, enacting policies that enable tenants to <a href="https://www.urban.org/research/publication/preserving-small-rental-buildings-during-covid-19-crisis" target="_blank">buy buildings</a>, dedicating state and local resources to complement federal funding, fostering a strong ecosystem of developers, and <a href="https://www.nationalhousingtrust.org/preservation-working-group" target="_blank">learning from other cities</a>. Local leaders can also allocate <a href="https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/state-and-local-fiscal-recovery-funds" target="_blank">Coronavirus State and Local Fiscal Recovery Funds</a> to support affordable housing development and preservation and <a href="https://www.urban.org/urban-wire/how-are-cities-planning-use-state-and-local-fiscal-recovery-funds-their-housing-needs" target="_blank">help households</a> manage rent and mortgage costs.</p>
+              </div>
+              <div class="solution">
+                <h6>Help residents manage transportation costs</h6>
+                <p>Transportation costs can absorb a significant portion of household budgets, especially for those who own and use cars. As local leaders help residents navigate inflation and gas price hikes while working to mitigate climate change, they can consider strategies like <a href="https://www.washingtonpost.com/transportation/2021/11/12/washington-bus-free-fares-equity/" target="_blank">reducing public transportation fares</a>, increasing bus and rail service, and repainting streets to prioritize buses and cyclists. Long-term, local leaders can <a href="https://www.urban.org/urban-wire/what-rising-gas-and-rent-prices-mean-families-low-incomes" target="_blank">plan</a> for land use, affordable housing, and transportation together, creating reasonably priced, walking- and transit-friendly neighborhoods to reduce the need for cars. They can also invest in substantially improved transit service by leveraging funds from the recently passed <a href="https://www.transportation.gov/bipartisan-infrastructure-law" target="_blank">US infrastructure law</a>. These investments would produce a more affordable transportation system while reducing greenhouse gas emissions.</p>
+              </div>
+              <div class="solution">
+                <h6>Help residents manage utility costs</h6>
+                <p>Local leaders can help residents manage utility expenses by connecting them to available financial supports and <a href="https://www.nlc.org/wp-content/uploads/2020/12/YEF_LIFTUPBrief-FINAL.pdf" target="_blank">coordinating</a> with utility providers. Programs such as <a href="https://www.nlc.org/wp-content/uploads/2020/12/YEF_LIFTUPBrief-FINAL.pdf" target="_blank">LIFT-UP</a> allow city utilities to recoup lost revenue from unpaid bills, while connecting residents who are behind on their utility bills with financial empowerment services. Local governments can tap multiple sources of funding (including <a href="https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/state-and-local-fiscal-recovery-funds" target="_blank">Coronavirus State and Local Fiscal Recovery Funds</a>, the <a href="https://www.acf.hhs.gov/ocs/low-income-home-energy-assistance-program-liheap" target="_blank">Low Income Home Energy Assistance Program</a>, <a href="https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/emergency-rental-assistance-program" target="_blank">Emergency Rental Assistance</a>, and the <a href="https://www.acf.hhs.gov/ofa/data/pandemic-emergency-assistance-fund" target="_blank">Pandemic Emergency Assistance Fund</a>) and coordinate across these programs using <a href="https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/emergency-rental-assistance-program/promising-practices/utilities" target="_blank">best practices</a> to promote these supports and connect households to a broader range of services.</p>
+              </div>
+              <div class="solution">
+                <h6>Improve college access and affordability</h6>
+                <p>Black students <a href="https://www.urban.org/policy-centers/center-education-data-and-policy/projects/racial-and-ethnic-differences-student-loan-borrowing" target="_blank">borrow more</a> than other students at similar institutions with similar levels of education, and they also have more <a href="https://www.urban.org/sites/default/files/2020/03/10/race_ethnicity_and_student_debt.pdf" target="_blank">trouble repaying their loans</a>. To ensure college and career and technical education are accessible and affordable for students of color, local leaders can work with philanthropy, school systems, local community colleges, and universities to provide <a href="https://oaklandpromise.org/college-access/" target="_blank">scholarships</a> and <a href="https://oaklandpromise.org/brilliant-baby/" target="_blank">college savings accounts</a>, <a href="https://detroitpromise.com/about/" target="_blank">advocate for lower tuition</a> and <a href="https://www.urban.org/urban-wire/helping-low-income-college-students-requires-action-institutions-and-policymakers" target="_blank">resources to lower living expenses</a>, and provide students and parents with <a href="https://boldlansing.org/" target="_blank">financial guidance and advisory support</a>. Local leaders can also work with employers to revise tuition benefits policies to align with the needs of workers, particularly workers of color, who want to go back to school to advance in their careers. They can also advocate for state and federal reforms to help improve <a href="https://www.urban.org/urban-wire/simplification-cannot-be-only-goal-student-aid-reform" target="_blank">financial aid<a href="" target="_blank"></a> and provide student loan debt relief for their residents, including <a href="https://www.urban.org/urban-wire/how-forgiveness-could-support-student-loan-restart" target="_blank">forgiving student loans</a> and making <a href="https://www.urban.org/research/publication/income-driven-repayment-student-loans" target="_blank">improvements to income-driven repayment programs</a>.</p>
+              </div>
+              <div class="solution">
+                <h6>Support working parents through quality, affordable child care</h6>
+                <p>Child care is a major expense for households with children, and the lack of child care can hold back working parents, <a href="https://www.urban.org/urban-wire/unemployed-parents-child-care-remains-question-mark" target="_blank">parents returning to the workforce</a>, and <a href="https://www.urban.org/policy-centers/cross-center-initiatives/building-americas-workforce/projects/bridging-gap" target="_blank">parents returning to school</a>. Given the pandemic’s disproportionate impact on parents of color and parents with lower incomes, addressing these challenges is a critical step toward <a href="https://www.urban.org/urban-wire/three-steps-state-child-care-agencies-can-take-support-equitable-economic-recovery" target="_blank">a more equitable and strong economic recovery</a>.</p>
+                <p>Local leaders can work with state and federal officials to engage child care providers and families, <a href="https://www.urban.org/research/publication/assessing-child-care-subsidies-through-equity-lens-review-policies-and-practices-child-care-and-development-fund" target="_blank">particularly those who face higher barriers to accessing public supports</a>, to identify gaps in the supply of affordable care. They can then target investments to make child care more affordable, supplementing federal-state subsidy funds to defray child care costs for parents unable to get assistance; support hard-to-find care (including <a href="https://www.urban.org/projects/informing-policy-decisions-about-nontraditional-hour-child-care" target="_blank">care during nontraditional hours</a>, care for <a href="https://www.urban.org/research/publication/insights-access-quality-child-care-infants-and-toddlers" target="_blank">infants and toddlers</a>, care for <a href="https://www.urban.org/research/publication/insights-access-quality-child-care-children-disabilities-and-special-needs" target="_blank">children with special needs</a>, and care in underresourced communities); and <a href="https://www.urban.org/research/publication/supporting-child-care-and-early-education-workforce" target="_blank">improve compensation for providers</a>. Finally, local leaders can work with the state subsidy system to make child care subsidies <a href="https://www.urban.org/research/publication/seven-ways-states-can-make-child-care-subsidies-more-accessible-and-equitable" target="_blank">more accessible and equitable</a> by simplifying application processes, coordinating applications and materials across state programs, and expanding eligibility thresholds.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabContent economicResilience hidden">
+          <h4>Economic Resilience</h4>
+          <p>These metrics illustrate residents’ savings, assets, and access to credit, which can help families weather economic shocks, such as a job loss or health emergency.</p>
+
+          <div class="metricContainer">
+            <div class="cover">
+              <p><a href="#mapSection">To see metrics, use the map to select a PUMA</a></p>
+            </div>
+            
+            <div class="metricsWrapper hidden">
+              <div class="metric emergencySavings">
+                <h6>Households with at least $2,000 in emergency savings (estimated)</h6>
+                <!-- <div class="tooltip">i
+                  <span class="tooltipText">
+                    Delinquent debt is debt that is at least 60 days past due.
+                  </span>
+                </div> -->
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+
+              <div class="metric creditScore">
+                <h6>Median credit score</h6>
+                <div class="tooltip">i
+                  <span class="tooltipText">
+                    Access to safe and affordable credit can allow local residents to pursue higher education or job training, start a business, and rent or buy a home.
+                  </span>
+                </div>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+            
+              <div class="metric inForeclosure">
+                <h6>Mortgage holders who had a foreclosure in the past two years</h6>
+                <div class="tooltip">i
+                  <span class="tooltipText">
+                    A home foreclosure affects residents’ ability to borrow and have a stable place to live.
+                  </span>
+                </div>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+
+              <div class="metric healthInsurance">
+                  <h6>Residents with health insurance coverage</h6>
+                  <!-- <div class="tooltip">i
+                    <span class="tooltipText">
+                      Delinquent debt is debt that is at least 60 days past due.
+                    </span>
+                  </div> -->
+                  <p class="metricValue"></p>
+                </div>
+              </div>
+          </div>
+
+          <div class="solutionsContainer">
+            <h5>STRATEGIES FOR LOCAL LEADERS</h5>
+            <div class="solutionsWrapper">
+              <div class="solution">
+                <h6>Protect those at risk of eviction</h6>
+                <p>The COVID-19 pandemic caused economic shocks that threatened the already precarious housing stability of renters with low incomes. Local leaders can protect renters at risk of eviction by instituting local eviction prevention strategies, such as <a href="https://www.urban.org/research/publication/eviction-prevention-and-diversion-programs-early-lessons-pandemic" target="_blank">eviction diversion programs</a> or right-to-counsel laws; ensuring equitable and timely <a href="https://www.urban.org/renters-and-rental-market-crisis-working-group/tracking-emergency-rental-assistance-distribution-and-eviction-protections" target="_blank">disbursement of emergency rental assistance</a> and enacting <a href="https://www.theatlantic.com/politics/archive/2021/10/universal-basic-rent-section-8-voucher/620429/" target="_blank">new forms of rental assistance</a> or <a href="https://www.penncgir.org/" target="_blank">income supports</a> when federal emergency assistance expires; and increasing funding for local housing subsidies. Many cities have experimented with <a href="https://housingmatters.urban.org/articles/municipal-policy-interventions-address-evictions" target="_blank">broader systems changes</a> that can stem evictions. <a href="https://housingmatters.urban.org/articles/how-philanthropy-can-and-cant-help-prevent-evictions-during-pandemic" target="_blank">Philanthropy can also play a role</a> in preventing evictions.</p>
+              </div>
+              <div class="solution">
+                <h6>Help residents build credit safely</h6>
+                <p>City leaders can help residents with no credit or poor credit establish and build credit safely by funding local organizations and community  development  financial institutions to issue credit-building loans, which are often paired with tailored financial coaching. Lawmakers may also require landlords to <a href="https://www.gao.gov/blog/credit-scoring-alternatives-those-without-credit" target="_blank">report rental payments</a> to credit bureaus to help residents improve their credit scores. Some jurisdictions have enacted local ordinances to regulate alternative financial products by capping interest rates and ensuring a borrower’s ability to repay. Doing so can help prevent residents from falling into a cycle of debt. </p>
+              </div>
+              <div class="solution">
+                <h6>Encourage savings</h6>
+                <p>Even a small amount of savings can make a big difference. Families with as little as <a href="https://www.urban.org/urban-wire/wealth-not-just-wealthy" target="_blank">$250 to $749 in savings</a> are less likely to receive public benefits, be evicted, or miss a housing or utility payment after a job loss or other income drop, which also <a href="https://www.urban.org/features/why-cities-should-care-about-family-financial-security" target="_blank">benefits city finances</a>. Liquid savings also contribute to residents’ <a href="https://www.aarp.org/ppi/info-2021/financial-well-being.html" target="_blank">long-term financial health</a>. Pay gaps, occupational segregation, and historical and current job discrimination can affect some residents’ ability to earn enough to save. Local leaders can incentivize and reward liquid savings through <a href="https://www.caab.org/en/caab-expands-emergencysavingsplus-an-innovative-matched-emergency-savings-pilot-program" target="_blank">matched savings</a>, <a href="https://www.aspeninstitute.org/wp-content/uploads/2022/04/ASP-FSW_101Solutions_FINAL_Single1.pdf" target="_blank">sidecar savings</a>, and <a href="https://www.saverlife.org/" target="_blank">nonprofit programs</a>, including programs targeted at boosting the liquid savings of <a href="https://buildcommonwealth.org/news-item/city-of-boston-pilot-program-helps-municipal-employees-build-rainy-day-funds/" target="_blank">municipal employees</a>. Cities can also remove barriers to saving by raising or eliminating asset limits in public benefits programs or encouraging their <a href="https://www.michigan.gov/documents/mdhhs/Asset_tests_QandA_668891_7.pdf" target="_blank">state</a> to do so.</p>
+              </div>
+              <div class="solution">
+                <h6>Assess city employment practices and boost employees’ financial security</h6>
+                <p>City government can take a leadership role in boosting their employees’ financial health, adopting policies and practices that other local employers can model. <a href="https://www.demos.org/research/bad-credit-shouldnt-block-employment-how-make-state-bans-employment-credit-checks-more" target="_blank">Forgoing credit checks in the hiring process</a> could help prospective employees who are struggling financially. City leaders can also establish partnerships with financial institutions to provide <a href="https://www.urban.org/research/publication/employer-sponsored-small-dollar-loans-survey-products-and-employers" target="_blank">small-dollar emergency loans</a> to city employees and safe financial products that make it easy for employees to save. They can also provide emergency assistance for workers through workforce development programming funded by city agencies. These options can enhance employees’ financial security and improve their credit scores as they successfully repay the loan.</p>
+              </div>
+              <div class="solution">
+                <h6>Promote health insurance coverage</h6>
+                <p>Being uninsured can have serious consequences for residents’ physical and financial health. Nationally, 13 percent of adults have <a href="https://apps.urban.org/features/debt-interactive-map/?type=medical&variable=medcoll" target="_blank">medical debt in collections</a>. Black residents are more likely to be uninsured and have <a href="https://www.urban.org/urban-wire/past-due-medical-debt-problem-especially-black-americans" target="_blank">past-due medical debt</a>. In states that did not expand Medicaid, local leaders could help state leaders understand how a high share of uninsured residents affects city financial health and residents’ daily finances.</p>
+              </div>
+              <div class="solution">
+                <h6>Improve access to and awareness of state safety net programs</h6>
+                <p>Residents who are eligible for safety net programs may not be receiving the help they need because they lack the right information, distrust government programs, or face cumbersome barriers to getting and keeping benefits. Local leaders can work with state leaders to expand eligibility and <a href="https://www.urban.org/research/publication/strategies-states-improve-safety-net-program-access-and-efficiency" target="_blank">improve access and program efficiency</a> through technology and business improvements, increased coordination across safety net programs, and information campaigns. Immigrant households in particular may be hesitant to apply for public programs. Local leaders can <a href="https://www.urban.org/urban-wire/how-federal-and-state-leaders-can-reach-immigrants-and-build-their-trust-safety-net" target="_blank">build trust with immigrant communities</a> by partnering with culturally specific organizations on outreach and enrollment, reaching out to immigrant families through mediums they trust, and increasing funding and capacity for enrollment navigators.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tabContent upwardMobility hidden">
+          <h4>Upward Mobility</h4>
+          <p>These metrics illustrate household wealth, which allows residents to pursue opportunities for upward mobility, such as higher education or entrepreneurship.</p>
+
+          <div class="metricContainer">
+            <div class="cover">
+              <p><a href="#mapSection">To see metrics, use the map to select a PUMA</a></p>
+            </div>
+            
+            <div class="metricsWrapper hidden">
+              <div class="metric netWorth">
+                <h6>Median net worth (estimated)</h6>
+                <div class="tooltip">i
+                  <span class="tooltipText">
+                    Total assets minus total debt
+                  </span>
+                </div>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+
+              <div class="metric homeownershipRate">
+                <h6>Homeownership rate</h6>
+                <p class="metricValue"></p>
+              </div>
+            
+              <div class="metric homeValue">
+                <h6>Median home value among homeowners</h6>
+                <p class="metricValue"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="solutionsContainer">
+            <h5>STRATEGIES FOR LOCAL LEADERS</h5>
+            <div class="solutionsWrapper">
+              <div class="solution">
+                <h6>Support programs that help residents build wealth and assets</h6>
+                <p>To help residents pursue opportunities for upward mobility, local leaders can remove barriers to wealth building and promote asset development at the individual and community levels. Building on the success of <a href="https://www.urban.org/research/publication/households-low-incomes-can-save-evidence-and-lessons-matched-savings-programs-us-and-italy" target="_blank">matched-savings programs</a> like individual development accounts and <a href="https://csd.wustl.edu/child-development-accounts/" target="_blank">child savings accounts</a>, several local leaders are considering <a href="https://next50.urban.org/article/shrinking-racial-wealth-gap-without-focusing-race-interview-kirwan-institutes-darrick" target="_blank">baby bonds</a> programs. These trust accounts hold promise as a powerful investment in young people from households of little-to-no wealth, which are disproportionately Black, Hispanic, Native American, and immigrant households. Local jurisdictions can also pursue <a href="https://www.urban.org/research/publication/community-wealth-building-models" target="_blank">community wealth-building</a> strategies and advocate for more equitable and transparent investment of <a href="https://www.urban.org/research/publication/new-era-racial-equity-community-development-finance" target="_blank">community development capital</a> from private and philanthropic entities.</p>
+              </div>
+              <div class="solution">
+                <h6>Resolve heirs’ property issues</h6>
+                <p>Some residents, particularly Black families in the South and residents in central Appalachia, hold or have lost land handed down from previous generations without a clear title or legal document proving ownership. Residents with this type of inherited property, known as <a href="https://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2015/07/15/heirs-property-challenges-families-states" target="_blank">heirs’ property</a>, may be unable to secure a mortgage or home improvement loan but are responsible for taxes and other liabilities and can have their property taken away through court-ordered sales. One estimate states that heirs’ property makes up <a href="https://features.propublica.org/black-land-loss/heirs-property-rights-why-black-families-lose-land-south/" target="_blank">more than a third of Southern Black-owned land</a>. Local leaders can help residents navigate the legal process to resolve land ownership through legal education and heirs’ property resolution services.</p>
+              </div>
+              <div class="solution">
+                <h6>Promote homeownership and protect homeowners</h6>
+                <p>Homeownership is an important vehicle for building wealth and financial stability, but a long history of racist policies and practices like redlining, restrictive covenants, urban renewal, inequitable access to insurance, and segregation have blocked households of color—particularly Black households—from homeownership opportunities. Local leaders can help residents achieve homeownership by offering <a href="https://www.nalhfa.org/home-buyer-resources" target="_blank">down payment and closing cost assistance</a>; providing loans and <a href="https://www.dchfa.org/lenders/dc-open-doors/" target="_blank">below-market interest rates</a> to boost affordability and housing equity accumulation; and promoting land trusts, co-ops, and shared equity housing alongside <a href="https://www.urban.org/research/publication/neighborworks-americas-homeownership-education-and-counseling-who-receives-it-and-it-effective" target="_blank">homeownership education and counseling</a>.</p>
+                <p>Local leaders can also <a href="https://www.urban.org/research/publication/policies-and-programs-inclusive-and-equitable-recovery" target="_blank">reform</a> property taxes by introducing more progressive tax approaches, subsidies, or rebates. They can also reform assessment processes to ensure they do not disproportionately burden residents with low incomes, for example by increasing the frequency of assessments, eliminating assessment limits, and reforming appeals processes. Lastly, local leaders can prompt state policymakers to ensure that the federal Homeowner Assistance Fund <a href="https://www.urban.org/urban-wire/uneven-recoveries-can-build-long-term-racial-and-ethnic-disparities-housing" target="_blank">stabilizes households with low incomes and households of color</a> as intended and helps <a href="https://www.urban.org/research/publication/how-economic-crises-and-sudden-disasters-increase-racial-disparities-homeownership" target="_blank">prevent racial disparities from worsening</a>. In addition, because Black and Hispanic homeowners are more likely to live in <a href="https://www.urban.org/research/publication/pandemic-homeowners-color-faced-structural-barriers-benefits-homeownership" target="_blank">inadequate housing</a>, <a href="https://www.urban.org/urban-wire/housing-trends-newark-new-jersey-illustrate-how-covid-19-recession-has-affected-black-and-hispanic-homeowners" target="_blank">access to funds for home repairs</a> could help them maintain homeownership.</p>
+              </div>
+              <div class="solution">
+                <h6>Support students during and after college and ensure programs advance upward mobility</h6>
+                <p>Black and Hispanic students are more likely than their white peers to <a href="https://tcf.org/content/report/bridging-progressive-policy-debates-student-debt-racial-wealth-gap-reinforce/?agreed=1" target="_blank">drop out of college</a>. Structural inequities in K–12 education can leave these students less prepared for college. They’re also more likely to have competing financial priorities and attend an underresourced college without vital student supports. When combined with generational wealth gaps, occupational segregation, and racial discrimination in the job market, these barriers affect students’ ability to pay back student loans and leverage their degrees.</p>
+                <p>To ensure higher education delivers on its potential for upward mobility, local leaders can explore which programs and fields of study are delivering for students and invest in <a href="https://oaklandpromise.org/college-completion/" target="_blank">mentorship, sustained scholarships, and guidance counseling</a>. Leaders can also create <a href="https://collegefutures.org/ca-college-student-emergency-support-fund/#:~:text=The%20California%20College%20Student%20Emergency,%24500%20hardship%20grants%20to%20students." target="_blank">emergency aid funds</a> to help students with unexpected costs that might otherwise force them to drop out. Local leaders can also promote a feeling of belonging in schools by elevating student voices and designing programs—with student input—that offer financial, personal, and academic supports. And support can continue after graduation: local leaders can help build <a href="https://www.urban.org/urban-wire/four-strategies-community-colleges-are-using-connect-their-students-employment" target="_blank">partnerships between employers and colleges</a> so students are preparing for and can obtain high-quality, in-demand jobs in their community.</p>
+              </div>
+              <div class="solution">
+                <h6>Offer sector-based skills training for in-demand jobs</h6>
+                <p>Historical discrimination in hiring has resulted in occupational segregation, with women and people of color underrepresented in jobs that provide family-sustaining wages and benefits. To improve access to quality jobs, leaders of local workforce agency and workforce development boards can leverage government, private, and philanthropic funding and programs like <a href="https://www.urban.org/research/publication/virtue-apprenticeship" target="_blank">apprenticeships</a> (including <a href="https://www.urban.org/research/publication/public-sector-apprenticeship-improving-work-governments-and-residents#:~:text=Public%20sector%20apprenticeships%20are%20a,from%20an%20infusion%20of%20talent." target="_blank">public sector</a> apprenticeships) to provide job training in growth sectors like <a href="https://www.baltimorealliance.org/" target="_blank">health care</a>, <a href="https://www.techtalentpipeline.nyc/" target="_blank">technology</a>, and key <a href="https://wrtp.org/" target="_blank">regional industries</a>. Partnering with high schools and community colleges, training providers, business groups, and employers will ensure that the training is aligned with employer needs and offers access to jobs. Local leaders can improve equity outcomes by actively recruiting women and workers of color and providing support services, like transportation stipends and child care, to reduce barriers to participation. Local program leaders can also create new service models that allow for remote training.</p>
+              </div>
+              <div class="solution">
+                <h6>Leverage workforce investments to improve job quality</h6>
+                <p>Local leaders can prioritize <a href="https://www.urban.org/research/publication/job-quality-and-economic-mobility-potential-mechanisms-empirical-approach-and-directions-research" target="_blank">job quality</a> across workforce programs to increase the number of jobs with family-sustaining wages and benefits. Workforce programs can <a href="https://www.urban.org/research/publication/strategies-workforce-recovery-response-current-crisis" target="_blank">center job-quality goals</a> by increasing employee ownership, engaging with employers that meet certain job-quality requirements, training job seekers on job-quality fundamentals, and integrating job-quality requirements in subrecipient contracts. Local governments can set higher standards for job quality through their own practices and policies, including using business incentives like special tax credits to ensure that new jobs are located near transit hubs, meet living-wage standards, and focus on harder-to-employ populations. Local leaders can also help <a href="https://nationalfund.org/wp-content/uploads/2021/01/Advancing-Workforce-Equity_Chicago.pdf" target="_blank">elevate worker voice and power</a>, ensuring they have a voice in all these efforts.</p>
+              </div>
+              <div class="solution">
+                <h6>Support the future workforce by investing in youth and young adults</h6>
+                <p>Government and philanthropic leaders can <a href="https://www.urban.org/research/publication/exploring-approaches-increase-economic-opportunity-young-men-color-10-year-review" target="_blank">develop programs for young people</a> through “earn and learn” opportunities <a href="https://theurbanalliance.org/" target="_blank">during the school year</a>, <a href="https://www.urban.org/research/publication/employer-engagement-summer-youth-employment-programs" target="_blank">the summer</a>, or <a href="https://www.abtassociates.com/insights/publications/report/benefits-that-last-long-term-impact-and-cost-benefit-findings-for-year" target="_blank">after graduation</a>. These programs can help teens and young adults gain valuable access to job training. Local government can partner with philanthropy and business leaders to enhance these programs with culturally appropriate support services, such as expanded outreach efforts, mentorship and career navigation services, and stipends or earning opportunities. Some programs also connect young people with a safe, low-cost financial account at a bank or credit union to help them save what they earn.</p>
+              </div>
+              <div class="solution">
+                <h6>Support successful reentry for those with criminal legal system involvement</h6>
+                <p>Being involved with the criminal legal system can harm people’s financial stability and prevent their upward mobility. Local leaders can pursue a <a href="https://nationalreentryresourcecenter.org/resources/toolkits/reentry" target="_blank">range of approaches</a> for helping people released from incarceration, including strategies to increase <a href="https://www.urban.org/projects/breaking-links-between-housing-instability-and-jail-incarceration-through-just-home" target="_blank">housing stability</a> and <a href="https://www.ncsl.org/research/civil-and-criminal-justice/providing-identification-for-those-released-from-incarceration.aspx" target="_blank">access to identification documents</a> following release. Having a job can also help ensure a <a href="https://whatworks.csgjusticecenter.org/" target="_blank">successful transition</a> from prison or jail and prevent future criminal legal system involvement. To connect people with jobs, local government leaders can coordinate with jails and prisons, corrections and community supervision agencies, nonprofits serving justice-involved people, and employers that are hiring or interested in offering subsidized jobs. Local workforce leaders can advocate for apprenticeship or pre-apprenticeship programs to enlist people who are about to be released, ensure workforce development efforts include legal system outreach, and encourage employers to be open to hiring those with criminal records. Lastly, local leaders can explore ways to <a href="https://www.urban.org/research/publication/children-incarcerated-parents-framework-document-promising-practices-challenges-and-recommendations-field" target="_blank">support the families and children</a> of those involved in the criminal legal system.</p>
+              </div>
+              <div class="solution">
+                <h6>Support small business growth and recovery</h6>
+                <p>To <a href="https://www.urban.org/research/publication/best-practices-small-business-recovery-inform-equitable-covid-19-recovery" target="_blank">aid small businesses recovering from the pandemic</a>, local leaders can leverage state and federal investments to administer small business recovery and resiliency grants. And to help financially vulnerable businesses access capital, local leaders can support and scale <a href="https://www.urban.org/events/past-and-future-investing-cdfis-expand-lending-diverse-small-business-owners" target="_blank">community development financial institution</a> products and directly underwrite credit enhancements or loan guarantees. In addition, local leaders can provide culturally tailored <a href="https://www.urban.org/research/publication/supporting-latino-and-immigrant-entrepreneurs-time-crisis" target="_blank">technical assistance</a>, create resource hubs for comprehensive business assistance, cultivate business entrepreneurship and training opportunities, and provide access to <a href="https://www.connect2capital.com/" target="_blank">technology</a> that can democratize access to financial and informational resources.</p>
+              </div>
+              <div class="solution">
+                <h6>Strengthen the small business ecosystem</h6>
+                <p>City and county policymakers can leverage the purchasing power of local government to support and invest in local small businesses, particularly those owned by women and people of color. They can also use their real estate assets to provide low-cost leases to small businesses getting off the ground and offer spaces for small businesses to showcase their goods or services and connect with new customers. Local government leaders can also ensure that any new funding is targeted to neighborhoods that have been historically locked out of investment. For example, Chicago’s <a href="https://neighborhoodopportunityfund.com/#/?address=undefined" target="_blank">Neighborhood Opportunity Fund</a> offers competitive grant funding to small-business owners, property owners, landlords, and nonprofits in underresourced commercial corridors.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a class="returnToMapBtn invisible" href="#mapSection">
+      <img src="img/up-arrow.svg">
+      Return to map
+    </a>
+  </div>
+
+  <section class="modal closed">
+    <div class="modalContent">
+      <button class="close">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M19.6901 16L31.7083 28.0182C31.8979 28.2662 31.9854 28.5433 31.9854 28.8496C31.9854 29.1559 31.8979 29.4038 31.7083 29.5934L29.5788 31.7229C29.3892 31.9125 29.1413 32 28.835 32C28.5287 32 28.2516 31.9125 28.0036 31.7229L15.9854 19.7046L3.96718 31.7229C3.71923 31.9125 3.44211 32 3.13582 32C2.82954 32 2.58159 31.9125 2.39198 31.7229L0.262534 29.5934C0.0875114 29.4038 0 29.1559 0 28.8496C0 28.5433 0.0875114 28.2662 0.277119 28.0182L12.2954 16L0.277119 3.98177C0.0875114 3.73382 0 3.4567 0 3.15041C0 2.84412 0.0875114 2.59617 0.277119 2.40656L2.40656 0.277119C2.59617 0.0875114 2.82954 0 3.15041 0C3.47129 0 3.73382 0.0875114 3.98177 0.277119L16 12.2954L28.0182 0.277119C28.2662 0.0875114 28.5433 0 28.8496 0C29.1559 0 29.4038 0.0875114 29.5934 0.277119L31.7229 2.40656C31.9125 2.59617 32 2.84412 32 3.15041C32 3.4567 31.9125 3.73382 31.7229 3.98177L19.6901 16Z" fill="black"/>
+          </svg>
+      </button>
+
+      <h2>Financial Health Metrics</h2>
+      <p class="cityName">For <span>Chicago</span></p>
+
+      <p>We define financial health as people’s ability to manage their daily finances, be resilient to economic shocks, and pursue opportunities for upward mobility.</p>
+
+      <div class="dailyFinances">
+        <h3>Daily finances</h3>
+        <p>These metrics are signs of financial distress or residents’ financial burdens, which can make it hard for households to manage their daily finances.</p>
+
+        <div class="metric delinquentDebt">
+          <h4>Residents with delinquent debt</h4>
+          <div class="tooltip">i
+            <span class="tooltipText">
+              Delinquent debt is debt that is at least 60 days past due.
+            </span>
+          </div>
+          <div class="chartContainer">
+            <div class="chart city">
+              <p class="geoName">Chicago</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart state">
+              <p class="geoName">Illinois</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart national">
+              <p class="geoName">National</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="economicResilience">
+        <h3>Economic resilience</h3>
+        <p>These metrics illustrate residents’ savings, assets, and access to credit, which can help families weather economic shocks, such as a job loss or health emergency.</p>
+
+        <div class="metric emergencySavings">
+          <h4>Households with at least $2,000 in emergency savings (estimated)</h4>
+          <!-- <div class="tooltip">i
+            <span class="tooltipText">
+              Delinquent debt is debt that is at least 60 days past due.
+            </span>
+          </div> -->
+          <div class="chartContainer">
+            <div class="chart city">
+              <p class="geoName">Chicago</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart state">
+              <p class="geoName">Illinois</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart national">
+              <p class="geoName">National</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="metric creditScore">
+          <h4>Median credit score</h4>
+          <div class="tooltip">i
+            <span class="tooltipText">
+              Access to safe and affordable credit can allow local residents to pursue higher education or job training, start a business, and rent or buy a home.
+            </span>
+          </div>
+          <div class="chartContainer">
+            <div class="chart city">
+              <p class="geoName">Chicago</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart state">
+              <p class="geoName">Illinois</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart national">
+              <p class="geoName">National</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="metric inForeclosure">
+          <h4>Mortgage holders in foreclosure</h4>
+          <div class="tooltip">i
+            <span class="tooltipText">
+              A home foreclosure affects residents’ ability to borrow and have a stable place to live.
+            </span>
+          </div>
+          <div class="chartContainer">
+            <div class="chart city">
+              <p class="geoName">Chicago</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart state">
+              <p class="geoName">Illinois</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart national">
+              <p class="geoName">National</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="upwardMobility">
+        <h3>Upward mobility</h3>
+        <p>These metrics illustrate household wealth, which allows residents to pursue opportunities for upward mobility, such as higher education or entrepreneurship.</p>
+
+        <div class="metric netWorth">
+          <h4>Median net worth (estimated)</h4>
+          <div class="tooltip">i
+            <span class="tooltipText">
+              Total assets minus total debt
+            </span>
+          </div>
+          <div class="chartContainer">
+            <div class="chart city">
+              <p class="geoName">Chicago</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart state">
+              <p class="geoName">Illinois</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+    
+            <div class="chart national">
+              <p class="geoName">National</p>
+              <div class="chart overall"></div>
+              <p>Communities that are majority</p>
+              <div class="chart breakdown"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p><em>Data are not available when the sample size is too small or when a zip code does not have a majority (more than 50 percent) of residents in any racial or ethnic group. For more information about our methodology, please see the technical appendix. </em></p>
+
+    </div>
+  </section>
+  
+  <footer>
+    <div class="wrapper">
+      <h4>A starting point</h4>
+      <p>Stark racial disparities in financial health often stem from racial disparities in wealth and historical inequities in wealth-building. Several policy and program interventions to boost financial health can also help narrow the racial wealth gap.</p>
+      <p>The <a href="#" target="_blank">strategies in this dashboard</a> are intended to spark ideas and provide direction to local leaders about ways to invest in their residents’ financial health and narrow the racial wealth gap. These and <a href="https://www.aspeninstitute.org/publications/101-solutions-to-inclusive-wealth-building/" target="_blank">other approaches</a> are a starting point with real-world examples and resources to help city leaders prioritize options and learn from each other.</p>
+
+
+      <h3>About the data</h3>
+      <p>This dashboard contains information derived from a nationally representative panel of deidentified, consumer-level records from a major credit bureau. The credit bureau data are from February and August 2021. The February credit records cover 5 million consumers, which is a 2 percent sample of all consumers. In August 2021, we doubled the sample size to 10 million consumers, which is a 4 percent sample of all consumers.</p>
+      <p>We also incorporated estimates from the Census Bureau’s American Community Survey (ACS). Where possible, we used ACS one-year estimates from 2019 (the most recent year of data), but for areas with smaller populations, we used ACS five-year estimates (2015–19).</p>
+      <p>This dashboard also contains information imputed by machine learning models. We used the 2018 Survey of Income and Program Participation (SIPP) to train the machine learning models. Based on the models, we estimated the net worth and emergency savings for the 2019 one-year ACS.</p>
+      <p>We use the abbreviation AAPI for Asian American Pacific Islander. We use the term Hispanic to refer to people of Hispanic or Latino origin to align with how the data were collected. We recognize that this term may not be the preferred identifier for many, and we remain committed to using inclusive language whenever possible.</p>
+      <p>We define communities that are majority residents of color, AAPI, Black, Hispanic, or white as zip codes where more than 50 percent of the residents fall in those racial or ethnic groups. Data are not available when the sample size is too small or when a zip code does not have a majority (more than 50 percent) of residents in any racial or ethnic group. For more information about the data and our methodology, see our <a href="#">technical appendix</a>.</p>
+      <p>Among more than 41,000 zip codes in the US, about 200 zip codes are not linked to PUMAs in the dashboard. These 200 zip codes either cover public places or are areas with no recorded population.</p>
+
+      <a href="https://datacatalog.urban.org/dataset/financial-health-and-wealth-dashboard-2022" target="_blank" class="btn">Download the data 
+        <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+          <path d="M13.5644 14.141C13.6889 14.141 13.7822 14.1867 13.8756 14.2629C13.9689 14.339 14 14.4457 14 14.5676V15.5733C14 15.6952 13.9533 15.7867 13.8756 15.8781C13.7978 15.9695 13.6889 16 13.5644 16H0.435556C0.311111 16 0.217778 15.9543 0.124444 15.8781C0.0311111 15.8019 0 15.6952 0 15.5733V14.5676C0 14.4457 0.0466667 14.3543 0.124444 14.2629C0.202222 14.1714 0.311111 14.141 0.435556 14.141H13.5644ZM12.7244 7.14667C12.8022 7.07048 12.8333 6.97905 12.8333 6.85714C12.8333 6.73524 12.7867 6.62857 12.6933 6.53714L11.9933 5.82095C11.9 5.74476 11.7911 5.71429 11.6667 5.71429C11.5422 5.71429 11.4489 5.76 11.3711 5.85143L7.94889 9.31048V0.426667C7.94889 0.304762 7.90222 0.213333 7.82444 0.121905C7.74667 0.0304762 7.63778 0 7.51333 0H6.48667C6.36222 0 6.26889 0.0457143 6.17556 0.121905C6.08222 0.198095 6.05111 0.304762 6.05111 0.426667V9.32571L2.62889 5.86667C2.55111 5.76 2.45778 5.71429 2.33333 5.71429C2.20889 5.71429 2.1 5.74476 2.00667 5.82095L1.27556 6.53714C1.19778 6.62857 1.16667 6.73524 1.16667 6.85714C1.16667 6.97905 1.21333 7.07048 1.30667 7.14667L6.67333 12.4343C6.76667 12.5257 6.87556 12.5714 7 12.5714C7.12444 12.5714 7.23333 12.5257 7.32667 12.4343L12.7244 7.14667Z" />
+        </svg>
+      </a>
+      <a href="#" target="_blank" class="btn">Download the strategies (PDF) 
+        <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+          <path d="M13.5644 14.141C13.6889 14.141 13.7822 14.1867 13.8756 14.2629C13.9689 14.339 14 14.4457 14 14.5676V15.5733C14 15.6952 13.9533 15.7867 13.8756 15.8781C13.7978 15.9695 13.6889 16 13.5644 16H0.435556C0.311111 16 0.217778 15.9543 0.124444 15.8781C0.0311111 15.8019 0 15.6952 0 15.5733V14.5676C0 14.4457 0.0466667 14.3543 0.124444 14.2629C0.202222 14.1714 0.311111 14.141 0.435556 14.141H13.5644ZM12.7244 7.14667C12.8022 7.07048 12.8333 6.97905 12.8333 6.85714C12.8333 6.73524 12.7867 6.62857 12.6933 6.53714L11.9933 5.82095C11.9 5.74476 11.7911 5.71429 11.6667 5.71429C11.5422 5.71429 11.4489 5.76 11.3711 5.85143L7.94889 9.31048V0.426667C7.94889 0.304762 7.90222 0.213333 7.82444 0.121905C7.74667 0.0304762 7.63778 0 7.51333 0H6.48667C6.36222 0 6.26889 0.0457143 6.17556 0.121905C6.08222 0.198095 6.05111 0.304762 6.05111 0.426667V9.32571L2.62889 5.86667C2.55111 5.76 2.45778 5.71429 2.33333 5.71429C2.20889 5.71429 2.1 5.74476 2.00667 5.82095L1.27556 6.53714C1.19778 6.62857 1.16667 6.73524 1.16667 6.85714C1.16667 6.97905 1.21333 7.07048 1.30667 7.14667L6.67333 12.4343C6.76667 12.5257 6.87556 12.5714 7 12.5714C7.12444 12.5714 7.23333 12.5257 7.32667 12.4343L12.7244 7.14667Z" />
+        </svg>
+      </a>
+
+      <h3>Project Credits</h3>
+      <p class="disclosure">This feature was funded by a grant from JPMorgan Chase & Co. We are grateful to them and to all our funders, who make it possible for Urban to advance its mission. The views expressed are those of the authors and should not be attributed to the Urban Institute, its trustees, or its funders. Funders do not determine research findings or the insights and recommendations of our experts. More information on our funding principles is available <a href="https://www.urban.org/support/funding-principles">here</a>. Read our terms of service <a href="https://www.urban.org/terms-service">here</a>.</p>
+      <p>We would like to thank our advisory board for their guidance and expertise throughout the development of this dashboard:</p>
+      <ul>
+        <li>Alicia DiFazio, Council of the District of Columbia</li>
+        <li>Heidi Goldberg, National League of Cities</li>
+        <li>Miriam Freeman, JPMorgan Chase & Co.</li>
+        <li>Sarah Treuhaft, PolicyLink</li>
+        <li>Tamara Lindsey, Center for Financial Empower Fund</li>
+      </ul>
+
+      <p>We would also like to thank our Urban Institute colleagues Gina Adams, Sandy Baum, Chantel Boyens, Matt Chingos, Yonah Freemark, Heather Hahn, Michael Neal, Kate Reynolds, Trina Shanks, Shayne Spaulding, and Brett Theodos for their valuable input and feedback.</p>
+      
+      <p><span>Research</span> <a href="https://www.urban.org/author/mingli-zhong" target="_blank">Mingli Zhong</a>, <a href="https://www.urban.org/author/aaron-r-williams" target="_blank">Aaron R. Williams</a>, <a href="https://www.urban.org/author/alexander-carther" target="_blank">Alex Carther</a>, <a href="https://www.urban.org/author/breno-braga" target="_blank">Breno Braga</a>, <a href="https://www.urban.org/author/signe-mary-mckernan" target="_blank">Signe-Mary McKernan</a>, <a href="https://www.urban.org/author/oriya-cohen" target="_blank">Oriya Cohen</a>, <a href="https://www.urban.org/author/catherine-harvey" target="_blank">Catherine Harvey</a>, and <a href="https://www.urban.org/author/courtney-jones" target="_blank">Courtney Jones</a></p>
+      <p><span>Design</span> <a href="https://www.urban.org/author/christina-baird" target="_blank">Christina Baird</a></p>
+      <p><span>Development</span> Alice Feng (<a href="https://alicefeng.github.io/" target="_blank">https://alicefeng.github.io/</a>)</p>
+      <p><span>Editing</span> <a href="https://www.urban.org/author/liza-hagerman" target="_blank">Liza Hagerman</a></p>
+      <p><span>Writing</span> <a href="https://www.urban.org/author/serena-lei" target="_blank">Serena Lei</a></p>
+
+      <p>View this project on <a href="#" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
+  <script src="js/jquery.2.1.4.min.js"></script>
+  <script src="js/d3.v4.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- START Parse.ly Include: Standard -->
+  <!-- <div id="parsely-root" style="display: none">
+    <span id="parsely-cfg" data-parsely-site="urban.org"></span>
+  </div>
+  <script>
+  (function(s, p, d) {
+    var h=d.location.protocol, i=p+"-"+s,
+    e=d.getElementById(i), r=d.getElementById(p+"-root"),
+    u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+    :"static."+p+".com";
+    if (e) return;
+    e = d.createElement(s); e.id = i; e.async = true;
+    e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+  })("script", "parsely", document);
+  </script> -->
+  <!-- END Parse.ly Include: Standard -->
+</body>
+</html>

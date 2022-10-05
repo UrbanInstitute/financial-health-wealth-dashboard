@@ -1,0 +1,1420 @@
+$pc:       #fdbf11;
+$region:   #151d21;
+$national: #9d9d9d;
+
+/* tooltip arrows from: http://www.cssarrowplease.com/ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, html {
+    color: #353535;
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    scroll-behavior: smooth;
+}
+
+.main {
+    padding-top: 140px;
+}
+
+text,
+input,
+select,
+button {
+    font-family: "Lato", sans-serif;
+    font-size: 100%;
+    border: 1px solid #d2d2d2;
+    border-radius: 0;
+}
+
+a {
+    color:#1696d2;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-style: initial;
+}
+
+a:hover {
+    color: #000;
+}
+
+p {
+    max-width: 760px;
+    width: 100%;
+    line-height: 1.6;
+    margin: 0 auto;
+    margin-bottom: 1.25em;
+}
+
+h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 960px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.625;
+    max-width: 760px;
+    margin: 1.2em auto 1em auto;
+}
+
+h3 {
+    font-size: 1.33rem;
+    max-width: 650px;
+    width: 100%;
+    margin: 3em auto 1.5em;
+    /*margin-bottom: 1.5em;*/
+}
+
+h4 {
+    margin-top: 2.4rem;
+    margin-bottom: 0;
+}
+
+hr {
+    border: 0.5px solid #d2d2d2;
+    max-width: 760px;
+    margin: 1.625em auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.date {
+    font-size: 0.7rem;
+    color: #696969;
+    text-align: center;
+}
+
+.social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    display: flex;
+    width: fit-content;
+
+    li {
+        margin-right: 0.8em;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    img {
+        height: 24px;
+    }
+}
+
+.returnToMapBtn {
+    display: block;
+    width: 110px;
+    height: 110px;
+    background-color: #000;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    padding: 1.1em;
+    padding-top: 0.9em;
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.intro p {
+    max-width: 760px;
+    color: #353535;
+    line-height: 1.625;
+}
+
+.social svg:hover {
+    path {
+        fill: #1696d2;
+    }
+}
+.howToUse {
+    max-width: 1160px;
+    border-top: 1px solid #d2d2d2;
+    margin: 3em auto 0;
+    padding: 2em 0;
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-style: initial;
+        text-align: initial;
+        max-width: initial;
+        letter-spacing: 1.3px;
+        margin: 0;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #696969;
+        font-weight: 700;
+        max-width: initial;
+        margin: 1em 0;
+    }
+
+    div.bonusData {
+        font-style: italic;
+        line-height: 1.625;
+        position: relative;
+
+        &::before {
+            content: '*';
+            background-color: #fdbf11;
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 5px;
+            transform: translateY(3px);
+            text-align: center;
+            line-height: 26px;
+            font-weight: 700;
+        }
+    }
+}
+
+.map {
+    width: 100%;
+    padding-top: 3em;
+
+    p {
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+
+    button.openModalBtn {
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 700;
+        background-color: #fdbf11;
+        border: none;
+        min-height: 46px;
+        padding: 12px 16px;
+        cursor: pointer;
+        margin-right: 2em;
+
+        &:hover {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    
+    button.clearSelection {
+        margin: 0;
+        padding: 0;
+        border: none;
+        background-color: unset;
+        font-size: 0.9rem;
+        color: #000;
+        font-weight: 700;
+        border-bottom: 2px solid #353535;
+        cursor: pointer;
+
+        &.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        max-width: 1160px;
+        margin: 0 auto;
+        justify-content: space-between;
+
+        &.footnote {
+            flex-direction: row-reverse;
+        }
+
+        div {
+            font-size: 0.7rem;
+        }
+    }
+}
+
+
+
+/*********** SEARCHBOX STYLES ***********/
+.searchbox {
+    width: 100%;
+    max-width: 731px;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    
+    input {
+        height: 50px;
+        max-width: 730px;
+        width: 100%;
+        display: inline-block;
+        margin: 0 auto;
+        padding: 0 1em;
+        background: url('../img/magnifyingGlass.svg') 96%/15% no-repeat #ffffff;
+        background-size: 25px;
+        // float: left;
+    }
+}
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+.searchResults {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1em;
+
+    .spacer {
+        width: 190px;
+        margin-left: 2em;
+    }
+
+    .wrapper {
+        flex: 1;
+    }
+
+    h3.geoName {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #000;
+        margin-top: 0.5em;
+        margin-bottom: 0.2em;
+        max-width: initial;
+
+        &.bonusCity::after {
+            content: '*';
+            background-color: #fdbf11;
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 5px;
+            transform: translateY(3px);
+            text-align: center;
+            line-height: 29px;
+            font-weight: 700;
+        }
+    }
+
+    .zipCodeLocated {
+        font-size: 1rem;
+    }
+
+    .numPumasInGeo {
+        color: #696969;
+        font-style: italic;
+    }
+
+    .highlight {
+        font-weight: 700;
+        color: #000;
+        border-bottom: 2px solid #000;
+        cursor: pointer;
+
+        &:hover {
+            color: #1696d2;
+            border-color: #1696d2;
+        }
+    }
+}
+
+/******** DROPDOWN MENU STYLES ******************************************/
+#metric-select-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;   /* remove default arrow */
+    width: 369px;
+    height: 43px;
+    /*background: #ffffff;*/
+    border: 1px solid #d2d2d2;
+    border-radius: 0;
+    font-family: Lato;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: bold;
+    color: #696969;
+    cursor: pointer;
+    /*padding-left: 10px;*/
+    background: url("../img/arrow-blue.png") 96% / 15% no-repeat #ffffff;
+    background-size: auto;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/* https://stackoverflow.com/questions/17553300/change-ie-background-color-on-unopened-focused-select-box */
+select:focus::-ms-value {
+    color: #1696d2;
+    background: none;
+}
+
+.ui-selectmenu-text {
+    font-size: 16px;
+    font-weight: bold;
+    // color: #1696d2;
+    width: 300px;
+}
+
+ul#metric-select-menu {
+    width: 369px;
+}
+
+label[for=metric-select-button] {
+    display: none;
+}
+
+.mapContainer {
+    width: 100%;
+    display: inline-block;
+    margin: 1em 0;
+    position: relative;
+
+    #map {
+        /*max-height: 544px;*/
+        width: 100%;
+        height: 595px;
+        background-color: #696969;
+    }
+
+    .instructions {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 250px;
+        background-color: #000;
+        font-size: 0.8rem;
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+        padding: 10px 13px;
+    }
+
+    .panel {
+        width: 417px;
+        position: absolute;
+        right: 1.5em;
+        top: 0.5em;
+        
+        > div {
+            background-color: #fff;
+            padding: 1.5em 1.2em;
+            margin: 1em 0;
+        }
+    }
+
+    .legendBlock {
+        stroke-width: 1px;
+        stroke: #9d9d9d;
+    }
+
+    .legendLabel {
+        font-size: 0.75rem;
+        text-anchor: middle;
+    }
+}
+
+.metric {
+    .pumaName {
+        margin-top: 1em;
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-bottom: 0.2em;
+    }
+
+    .metricValue {
+        color: #000;
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    .metricName {
+        font-weight: 700;
+    }
+}
+
+.buttons {
+    max-width: 1160px;
+    margin: 2em auto 1em;
+    display: flex;
+    justify-content: end;
+
+    button {
+        cursor: pointer;
+        text-transform: uppercase;
+        size: 0.9rem;
+        font-weight: 700;
+        color: #000;
+        padding: 12px 16px;
+        background-color: #fff;
+        border: 2px solid #000;
+        opacity: 1;
+        display: flex;
+        gap: 5px;
+
+        svg {
+            vertical-align: bottom;
+            pointer-events: none;
+            // stroke:rgb(0, 0, 0);
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+        button {
+            opacity: 0.5;
+        }
+    }
+}
+
+.populationRaceEthnicity {
+    max-width: 1160px;
+    margin: auto;
+    margin-bottom: 2.5em;
+
+    h4 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 1em;
+    }
+
+    h6 {
+        font-size: 0.8rem;
+        color: #000;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 1em;
+    }
+}
+
+.chartWrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    .chart {
+        max-width: 300px;
+    }
+}
+
+/*********** CHART STYLES ************/
+
+
+.dashboard {
+    max-width: 1160px;
+    margin: 0 auto;
+    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    padding-bottom: 5em;
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #000;
+        font-style: initial;
+        text-align: left;
+        max-width: unset;
+        margin-bottom: 0;
+    }
+
+    h3 {
+        font-size: 1rem;
+        font-style: italic;
+        font-weight: 400;
+        margin: 0;
+        max-width: initial;
+        margin-bottom: 1rem;
+    }
+
+    .pumaName {
+        font-size: 1.2rem;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    p {
+        max-width: unset;
+    }
+
+    .tabWrapper {
+        display: flex;
+        gap: 32px;
+
+        button {
+            font-weight: 700;
+            color: #696969;
+            background-color: #fff;
+            cursor: pointer;
+            height: 36px;
+            border: none;
+            padding: 0;
+
+            &.active {
+                border-bottom: 4px solid #fdbf11;
+                color: #000;
+            }
+
+            &:hover {
+                border-bottom: 4px solid #fdbf11;
+                color: #000;
+            }
+        }
+    }
+
+    .tabContent {
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #000;
+            text-transform: uppercase;
+            margin-bottom: 11px;
+        }
+
+        .metricContainer {
+            min-height: 200px;
+        }
+
+        .cover {
+            min-height: 200px;
+            background-color: #f5f5f5;
+            border: 1px solid #d2d2d2;
+            display: grid;
+            align-items: center;
+            
+            &.hidden {
+                display: none;
+            }
+            
+            p {
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-align: center;
+                margin: 0;
+            }
+        }
+
+        .metricsWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6%;
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        .metric {
+            width: 545px;
+            margin: 1em 0 2em;
+
+            h6 {
+                font-size: 0.9rem;
+                font-weight: 700;
+                color: #000;
+                margin: 0;
+                display: inline-block;
+            }
+
+            p {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #000;
+                text-align: left;
+                margin-top: 0;
+            }
+
+            .stripchart {
+                width: 100%;
+                height: 50px;
+            }
+        }
+
+        .solutionsContainer {
+            h5 {
+                font-size: 1.2rem;
+                font-weight: 300;
+                color: #000;
+                text-transform: uppercase;
+                margin-bottom: 1em;
+            }
+        }
+
+        .solutionsWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6%;
+
+            .solution {
+                width: 540px;
+
+                h6 {
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    color: #000;
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                }
+
+                p {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+
+    &.inactive {
+        color: #696969;
+
+        h2, 
+        a, 
+        .tabContent .solutionsWrapper .solution h6,
+        .tabWrapper button.active {
+            color: #696969;
+            border-bottom-color: #696969;
+        }
+
+        .cover a {
+            color: #1696d2;
+        }
+    }
+}
+
+.tick text,
+.label {
+    font-size: 14px;
+}
+
+.axis line {
+    stroke: #000;
+}
+
+.axis .tick line {
+    stroke: #d2d2d2;
+}
+
+body.modalOpen {
+    overflow: hidden;
+}
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0); /* fallback color */
+    background-color: rgba(0, 0, 0, 0.6);
+    visibility: visible;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+
+    &.closed {
+        visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        opacity: 0;
+        transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -webkit-transition: all .2s ease-in-out;
+    }
+
+    .modalContent {
+        width: 80%;
+        max-width: 1270px;
+        background-color: #fff;
+        position: relative;
+        // border: 2px solid #353535;
+        padding: 2em;
+        padding-bottom: 6em;
+        position: fixed;
+        top: 50px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+        height: 100vh;
+        overflow: scroll;
+        z-index: 1000;
+        opacity: 1;
+    }
+
+    button {
+        background-color: #fff;
+        border: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-style: normal;
+        color: #000;
+        text-align: start;
+        max-width: initial;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    h3 {
+        max-width: initial;
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-top: 2em;
+        margin-bottom: 0.5em;
+    }
+
+    h4 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #000;
+        margin-top: 0;
+        margin-bottom: 1em;
+        display: inline-block;
+    }
+
+    p {
+        max-width: initial;
+        // margin-bottom: 1em;
+    }
+
+    p.cityName {
+        font-style: italic;
+    }
+
+    .cityName span {
+        font-style: initial;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    
+    p.geoName {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .chartContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .chart {
+        flex: 1;
+    }
+
+    .metric {
+        margin: 2.5em 0;
+    }
+
+    .metric p {
+        font-size: 0.7rem;
+        font-weight: 700;
+    }
+}
+
+/*********** TOOLTIP STYLES ************/
+// code from: https://www.w3schools.com/css/css_tooltip.asp
+.tooltip {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tooltip .tooltipText {
+    // visibility: hidden;
+    width: 214px;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: initial;
+    text-align: left;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -107px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+  
+.tooltip .tooltipText::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltipText {
+    // visibility: visible;
+    opacity: 1;
+}
+
+.tooltip:hover {
+    background-color: #1696d2;
+}
+
+.mapboxgl-popup {
+    max-width: 230px;
+    font-family: 'Lato';
+    font-size: 14px;
+    color: #fff;
+}
+
+.mapboxgl-popup-content {
+    background: #000;
+    border-radius: 0;    
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip{
+    border-top-color: black;
+}
+
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip{
+    border-left-color: black;
+}
+
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip{
+    border-right-color: black;
+}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip{
+    border-bottom-color: black;
+}
+
+.tooltip2 {
+    font-size: 16px;
+}
+
+/*********** FOOTER ************/
+
+footer {
+    width: 100%;
+    padding: 5em 0;
+
+    > div {
+        max-width: 760px;
+        margin: 0 auto;
+    }
+
+    a.btn {
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: 2px solid #000;
+        padding: 0.6em 0.8em;
+        display: inline-block;
+        margin-bottom: 1.1em;
+        margin-right: 0.9em;
+
+        svg {
+            margin-left: 0.5em;
+            fill: #000;
+        }
+    }
+
+    a.btn:hover {
+      color: #FFF;
+      background-color: #000;
+
+      svg {
+          fill: #FFF;
+      }
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: #000;
+        margin: 2.5em 0 1em;
+        text-transform: uppercase;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+        color: #000;
+        margin-top: 0;
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        margin-bottom: 1.5em;
+        margin-top: 0.8em;
+    }
+
+    li {
+        line-height: 1.6;
+    }
+
+    .disclosure {
+        font-style: italic;
+    }
+
+    span {
+        margin-bottom: 4px;
+        margin-top: 12px;
+        margin-right: 4px;
+        text-transform: uppercase;
+        color: #000;
+        font-weight: 700;
+    }
+}
+
+@media (max-width: 1159px) {
+    .howToUse {
+        width: 90%;
+    }
+
+    .searchResults {
+        display: block;
+        padding: 0 1em;
+
+        &.hidden {
+            display: none;
+        }
+
+        .zipCodeLocated.invisible,
+        .numPumasInGeo.invisible {
+            display: none;
+        }
+    }
+
+    .map {
+    
+        button.openModalBtn {
+            margin-right: 0;
+            margin-top: 1em;
+
+            &.invisible {
+                display: none;
+            }
+        }
+
+        .wrapper.footnote {
+            width: 90%;
+        }
+    }
+
+    .populationRaceEthnicity {
+        width: 90%;
+    }
+
+    .dashboard {
+        width: 90%;
+    }
+}
+
+@media (max-width: 900px) {
+    #metric-select-button {
+        width: 270px;
+    }
+
+    .ui-selectmenu-text {
+        width: 90%;
+    }
+
+    ul#metric-select-menu {
+        max-width: 270px;
+    }
+
+    .map {
+        .wrapper.footnote {
+            display: block;
+        }
+
+        button.clearSelection {
+            margin-bottom: 1em;
+        }
+    }
+    .mapContainer {
+
+        .panel {
+            position: static;
+            width: 100%;
+            max-width: 100%;
+
+            > div {
+                padding: initial;
+                margin: 1em auto;
+                width: 90%;
+            }
+        }
+    }
+
+    .buttons {
+        max-width: 90%;
+        justify-content: start;
+    }
+}
+
+@media (max-width: 759px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    hr {
+        width: 90%;
+    }
+
+    .intro p {
+        max-width: 90%;
+    }
+
+    .howToUse {
+        margin: 2em auto;
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .searchbox {
+        width: 90%;
+        font-size: 0.9rem;
+        text-overflow: ellipsis;
+    }
+
+    .searchbox input::placeholder {
+        // font-size: 0.7rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .map {
+        p {
+            max-width: 90%;
+        }
+    }
+
+    .searchResults h3.geoName {
+        font-size: 1.5rem;
+    }
+
+    footer {
+        div {
+            width: 90%;
+        }
+
+        ul {
+            font-size: 0.9rem;
+        }
+    }
+
+    .modal {
+        .modalContent {
+            padding: 1em;
+            padding-top: 50px;
+        }
+
+        button svg {
+            height: 20px;
+        }
+
+        h2 {
+            line-height: initial;
+        }
+    }
+
+    .returnToMapBtn {
+        bottom: 50px;
+        right: 50px;
+    }
+}
+
+@media (max-width: 572px) {
+    .map {
+        padding-top: 0;
+    }
+
+    .dashboard {
+        padding-bottom: 3em; 
+
+        h2 {
+            line-height: 1.3;
+            margin-bottom: 0.5em;
+        }
+
+        .tabWrapper {
+
+            button {
+                height: auto;
+                padding-bottom: 6px;
+                font-size: 0.9rem;
+            }
+
+        }
+
+        .tabContent {
+            .cover {
+                p {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    footer {
+        padding: 3em 0;
+    }
+}
+
+@media (max-width: 397px) {
+    .modal {
+        h4 {
+            margin-bottom: 0;
+        }
+        
+        .chartContainer {
+            margin-top: 1em;
+        }
+    }
+
+    .returnToMapBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+        font-size: 0.7rem;
+
+        img {
+            width: 10px;
+        }
+    }
+}
+
+
+
+/************** PRINT STYLES *************************/
+body.print {
+    // border: 1px solid palevioletred;
+    font-size: 12px;
+    width: 210mm;
+    // padding: 10mm;
+
+    .main {
+        padding-top: 20px;
+    }
+
+    a {
+        color: #353535;
+        font-weight: 400;
+        pointer-events: none;
+        cursor: auto;
+    }
+
+    h1 {
+        font-size: 30px;
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 18px;
+        text-align: left;
+        margin-top: 8px;
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+
+    .date {
+        font-size: 14px;
+        text-align: left;
+        margin-top: 8px;
+    }
+
+    hr {
+        max-width: 100%;
+    }
+
+    .intro {
+        p {
+            max-width: 100%;
+        }
+    }
+
+    .map {
+        padding-top: 10px;
+    }
+
+    .searchResults {
+        h3.geoName {
+            font-size: 18px;
+            text-align: left;
+        }
+    }
+
+    .populationRaceEthnicity {
+        h4 {
+            font-size: 14px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        h6 {
+            font-size: 12px;
+        }
+    }
+
+    .chartWrapper {
+        gap: initial;
+        flex-wrap: nowrap;
+    }
+
+    .tick text, .label {
+        font-size: 10px;
+    }
+
+    .dashboard {
+        border-bottom: none;
+        padding-bottom: 0;
+        padding-top: 20px;
+
+        h3 {
+            font-size: 16px;
+        }
+
+        .pumaName {
+            font-size: 16px;
+        }
+
+        .tabContent {
+            margin-top: 30px;
+
+            h4 {
+                font-size: 16px;
+                margin-top: 20px;
+            }
+
+            .metricContainer {
+                min-height: auto;
+            }
+
+            .metricsWrapper {
+                gap: 2%;
+            }
+
+            .metric {
+                width: 350px;
+
+                h6 {
+                    font-size: 12px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+
+            .solutionsContainer {
+                h5 {
+                    font-size: 14px;
+                }
+            }
+
+            .solutionsWrapper {
+                display: block;
+
+                .solution {
+                    width: unset;
+
+                    h6 {
+                        font-size: 12px;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media print {
+    @page {
+        size: 210mm 297mm;
+        margin: 15mm;
+    }
+
+    body.print a:after {
+        content: none !important;
+    }
+
+    .searchResults {
+        padding: 0;
+    }
+
+    .populationRaceEthnicity {
+        width: 100%;
+    }
+
+    .dashboard {
+        width: 100%;
+    }
+}

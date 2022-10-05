@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Financial Health and Wealth Dashboard</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="css/jquery-ui.css" type="text/css">
+
+  <!--project style sheet-->
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+
+<body class="print">
+
+  <header>
+    <img src="img/logo main-color.png" alt="">
+  </header>
+
+  <div class="main">
+
+    <section class="intro">
+
+      <h1>Financial Health and Wealth Dashboard</h1>
+
+      <h2>A local picture of residents’ financial well-being</h2>
+
+      <div class="date">Sept XX, 2022</div>
+
+      <hr>
+
+      <p>City and community leaders from government, philanthropy, and practice can make a difference in residents’ financial lives. They have the tools, policy and program levers, and decisionmaking power to influence financial well-being at the local level and help narrow the racial wealth gap.</p>
+      <p>To help local leaders target their solutions, our dashboard illustrates financial health and wealth across cities and states and by race and ethnicity, where data are available.</p>
+      <p>We looked beyond income to include credit, debt, savings, assets, and wealth. Local solutions can tackle these multiple facets of financial well-being, as well as the structural barriers that created—and continue to reinforce—racial wealth inequities.</p>
+
+    </section>
+
+    <section class="map" id="mapSection">
+      <div class="searchResults">
+          <h3 class="geoName"></h3>
+      </div>
+    </section>
+
+    <section class="populationRaceEthnicity">
+      <h4>Population by race and ethnicity</h4>
+      <div class="chartWrapper">
+        <div class="chart puma">
+          <h6>PUMA</h6>
+        </div>
+        <div class="chart state">
+          <h6>State</h6>
+        </div>
+        <div class="chart national">
+          <h6>National</h6>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <h2>Financial Health Metrics</h2>
+      <h3>for <span class="pumaName"></span></h3>
+      <p>We <a href="https://www.urban.org/urban-wire/family-financial-security-takes-more-steady-paycheck" target="_blank">define financial health</a> as people’s ability to manage their daily finances, be resilient to economic shocks, and pursue opportunities for upward mobility.</p>
+
+      <div>
+        <div class="tabContent dailyFinances">
+          <h4>Daily Finances</h4>
+          <p>These metrics are signs of financial distress or illustrate residents’ financial burdens, which can make it hard for households to manage their daily finances.</p>
+
+          <div class="metricContainer">
+            <div class="metricsWrapper">
+              <div class="metric delinquentDebt">
+                <h6>Residents with delinquent debt</h6>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+
+              <div class="metric delinquentStudentLoanDebt">
+                <h6>Student loan holders with delinquent student loan debt</h6>
+                <p class="metricValue"></p>
+              </div>
+            
+              <div class="metric lowIncomeHhldsHousingCostBurden">
+                <h6>Low-income households with housing-cost burden</h6>
+                <p class="metricValue"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="solutionsContainer">
+            <h5>STRATEGIES FOR LOCAL LEADERS</h5>
+            <div class="solutionsWrapper">
+              <div class="solution">
+                <h6>Ensure family-sustaining wages</h6>
+                <p>Black and Hispanic workers and women are overrepresented in temporary and precarious jobs and underrepresented in jobs that provide family-sustaining wages and benefits like health insurance, retirement savings options, and <a href="https://www.abetterbalance.org/paid-sick-time-laws/" target="_blank">paid sick time</a> and <a href="https://www.abetterbalance.org/resources/paid-family-leave-laws-chart/" target="_blank">paid family and medical leave</a>. This occupational segregation is the result of persistent discrimination in hiring and geographic mismatches between where people of color live and where good jobs are located. Local leaders have the power to raise the wage floor in their cities, enact universal paid leave policies, and require public works projects to hire residents facing barriers to employment. Some cities have experimented with <a href="https://www.economicsecurityproject.org/guaranteedincome/" target="_blank">guaranteed income programs</a> and one-time cash payments for workers in essential occupations, such as <a href="https://www.washingtonpost.com/dc-md-va/2022/02/01/childcare-workers-checks-dc-council/" target="_blank">child care</a>, where wages are especially low.</p>
+              </div>
+              <div class="solution">
+                <h6>Help residents avoid and manage debt</h6>
+                <p>Too much personal debt wreaks havoc on family finances and can potentially lead to <a href="https://www.urban.org/research/publication/making-case-link-between-residents-financial-health-and-cities-inclusive-growth" target="_blank">lower city revenue</a> in the form of unpaid public utility bills, unpaid property taxes, and evictions. City leaders can first “do no harm” by ensuring that residents with debt are not penalized when applying for job certifications and business licenses, which offer opportunities for upward mobility. Several cities have also reformed the <a href="https://finesandfeesjusticecenter.org/articles/local-policy-guide-fee-elimination-and-debt-relief/" target="_blank">fines and fees</a> levied by their criminal legal systems and traffic courts, which have been shown significantly harm  households of color and households with low incomes. Finally, cities can <a href="https://www.afcpe.org/" target="_blank">train employees</a> to provide easy on-ramps to relevant, free, and <a href="https://change-machine.org/platform/" target="_blank">timely financial coaching programs</a> for <a href="https://prosperitynow.org/blog/building-financial-capability-planning-guide-integrated-services" target="_blank">residents seeking services</a> such as subsidized child care and housing assistance.</p>
+              </div>
+              <div class="solution">
+                <h6>Improve access to financial institutions</h6>
+                <p>To counter the lasting harm of redlining and other policies and practices that stripped wealth from neighborhoods of color, city leaders can strive to attract and partner with <a href="https://www.urban.org/policy-centers/cross-center-initiatives/community-economic-development-hub/projects/community-development-financial-institutions" target="_blank">community development financial institutions</a>, <a href="https://www.inclusiv.org/about-us/what-is-a-cdcu/" target="_blank">community development credit unions</a>, and <a href="https://www.fdic.gov/regulations/resources/minority/mdi.html" target="_blank">minority depository institutions</a>, whose missions are to serve people with low-to-moderate incomes and underserved Black, Hispanic, Native American, and Asian American communities. Cities may also opt to join one of nearly 100 <a href="https://joinbankon.org/" target="_blank">BankOn coalitions</a> to connect local residents to affordable, secure financial transaction accounts offered without overdraft fees.</p>
+              </div>
+              <div class="solution">
+                <h6>Produce and preserve affordable housing</h6>
+                <p>The US has a <a href="https://www.jchs.harvard.edu/sites/default/files/reports/files/Harvard_JCHS_State_Nations_Housing_2022.pdf" target="_blank">nationwide shortage of affordable and available housing</a> for homebuyers and renters. Local leaders can encourage the production of new affordable units by adopting inclusionary and <a href="https://www.urban.org/urban-wire/how-communities-are-rethinking-zoning-improve-housing-affordability-and-access-opportunity" target="_blank">streamlined zoning</a> and land use policies. They can also explore policy solutions to increase housing supply, such as <a href="https://www.urban.org/urban-wire/how-communities-are-rethinking-zoning-improve-housing-affordability-and-access-opportunity" target="_blank">density bonuses</a>, <a href="https://www.huduser.gov/portal/rbc/home.html" target="_blank">reduced regulatory barriers</a>, land value taxation, and equitable <a href="https://www.urban.org/research/publication/how-can-cities-create-more-equitable-transportation-systems" target="_blank">transit-oriented development</a>. Local leaders can also <a href="https://www.urban.org/urban-wire/preserving-affordable-housing-what-works" target="_blank">preserve existing affordable units</a> by tracking and targeting buildings <a href="https://greaterdc.urban.org/blog/cataloging-where-dc-should-preserve-affordable-housing-citys-population-continues-grow" target="_blank">with subsidies set to expire</a>, offering financial support to small landlords who wish to preserve their units, enacting policies that enable tenants to <a href="https://www.urban.org/research/publication/preserving-small-rental-buildings-during-covid-19-crisis" target="_blank">buy buildings</a>, dedicating state and local resources to complement federal funding, fostering a strong ecosystem of developers, and <a href="https://www.nationalhousingtrust.org/preservation-working-group" target="_blank">learning from other cities</a>. Local leaders can also allocate <a href="https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/state-and-local-fiscal-recovery-funds" target="_blank">Coronavirus State and Local Fiscal Recovery Funds</a> to support affordable housing development and preservation and <a href="https://www.urban.org/urban-wire/how-are-cities-planning-use-state-and-local-fiscal-recovery-funds-their-housing-needs" target="_blank">help households</a> manage rent and mortgage costs.</p>
+              </div>
+              <div class="solution">
+                <h6>Help residents manage transportation costs</h6>
+                <p>Transportation costs can absorb a significant portion of household budgets, especially for those who own and use cars. As local leaders help residents navigate inflation and gas price hikes while working to mitigate climate change, they can consider strategies like <a href="https://www.washingtonpost.com/transportation/2021/11/12/washington-bus-free-fares-equity/" target="_blank">reducing public transportation fares</a>, increasing bus and rail service, and repainting streets to prioritize buses and cyclists. Long-term, local leaders can <a href="https://www.urban.org/urban-wire/what-rising-gas-and-rent-prices-mean-families-low-incomes" target="_blank">plan</a> for land use, affordable housing, and transportation together, creating reasonably priced, walking- and transit-friendly neighborhoods to reduce the need for cars. They can also invest in substantially improved transit service by leveraging funds from the recently passed <a href="https://www.transportation.gov/bipartisan-infrastructure-law" target="_blank">US infrastructure law</a>. These investments would produce a more affordable transportation system while reducing greenhouse gas emissions.</p>
+              </div>
+              <div class="solution">
+                <h6>Help residents manage utility costs</h6>
+                <p>Local leaders can help residents manage utility expenses by connecting them to available financial supports and <a href="https://www.nlc.org/wp-content/uploads/2020/12/YEF_LIFTUPBrief-FINAL.pdf" target="_blank">coordinating</a> with utility providers. Programs such as <a href="https://www.nlc.org/wp-content/uploads/2020/12/YEF_LIFTUPBrief-FINAL.pdf" target="_blank">LIFT-UP</a> allow city utilities to recoup lost revenue from unpaid bills, while connecting residents who are behind on their utility bills with financial empowerment services. Local governments can tap multiple sources of funding (including <a href="https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/state-and-local-fiscal-recovery-funds" target="_blank">Coronavirus State and Local Fiscal Recovery Funds</a>, the <a href="https://www.acf.hhs.gov/ocs/low-income-home-energy-assistance-program-liheap" target="_blank">Low Income Home Energy Assistance Program</a>, <a href="https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/emergency-rental-assistance-program" target="_blank">Emergency Rental Assistance</a>, and the <a href="https://www.acf.hhs.gov/ofa/data/pandemic-emergency-assistance-fund" target="_blank">Pandemic Emergency Assistance Fund</a>) and coordinate across these programs using <a href="https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/emergency-rental-assistance-program/promising-practices/utilities" target="_blank">best practices</a> to promote these supports and connect households to a broader range of services.</p>
+              </div>
+              <div class="solution">
+                <h6>Improve college access and affordability</h6>
+                <p>Black students <a href="https://www.urban.org/policy-centers/center-education-data-and-policy/projects/racial-and-ethnic-differences-student-loan-borrowing" target="_blank">borrow more</a> than other students at similar institutions with similar levels of education, and they also have more <a href="https://www.urban.org/sites/default/files/2020/03/10/race_ethnicity_and_student_debt.pdf" target="_blank">trouble repaying their loans</a>. To ensure college and career and technical education are accessible and affordable for students of color, local leaders can work with philanthropy, school systems, local community colleges, and universities to provide <a href="https://oaklandpromise.org/college-access/" target="_blank">scholarships</a> and <a href="https://oaklandpromise.org/brilliant-baby/" target="_blank">college savings accounts</a>, <a href="https://detroitpromise.com/about/" target="_blank">advocate for lower tuition</a> and <a href="https://www.urban.org/urban-wire/helping-low-income-college-students-requires-action-institutions-and-policymakers" target="_blank">resources to lower living expenses</a>, and provide students and parents with <a href="https://boldlansing.org/" target="_blank">financial guidance and advisory support</a>. Local leaders can also work with employers to revise tuition benefits policies to align with the needs of workers, particularly workers of color, who want to go back to school to advance in their careers. They can also advocate for state and federal reforms to help improve <a href="https://www.urban.org/urban-wire/simplification-cannot-be-only-goal-student-aid-reform" target="_blank">financial aid<a href="" target="_blank"></a> and provide student loan debt relief for their residents, including <a href="https://www.urban.org/urban-wire/how-forgiveness-could-support-student-loan-restart" target="_blank">forgiving student loans</a> and making <a href="https://www.urban.org/research/publication/income-driven-repayment-student-loans" target="_blank">improvements to income-driven repayment programs</a>.</p>
+              </div>
+              <div class="solution">
+                <h6>Support working parents through quality, affordable child care</h6>
+                <p>Child care is a major expense for households with children, and the lack of child care can hold back working parents, <a href="https://www.urban.org/urban-wire/unemployed-parents-child-care-remains-question-mark" target="_blank">parents returning to the workforce</a>, and <a href="https://www.urban.org/policy-centers/cross-center-initiatives/building-americas-workforce/projects/bridging-gap" target="_blank">parents returning to school</a>. Given the pandemic’s disproportionate impact on parents of color and parents with lower incomes, addressing these challenges is a critical step toward <a href="https://www.urban.org/urban-wire/three-steps-state-child-care-agencies-can-take-support-equitable-economic-recovery" target="_blank">a more equitable and strong economic recovery</a>.</p>
+                <p>Local leaders can work with state and federal officials to engage child care providers and families, <a href="https://www.urban.org/research/publication/assessing-child-care-subsidies-through-equity-lens-review-policies-and-practices-child-care-and-development-fund" target="_blank">particularly those who face higher barriers to accessing public supports</a>, to identify gaps in the supply of affordable care. They can then target investments to make child care more affordable, supplementing federal-state subsidy funds to defray child care costs for parents unable to get assistance; support hard-to-find care (including <a href="https://www.urban.org/projects/informing-policy-decisions-about-nontraditional-hour-child-care" target="_blank">care during nontraditional hours</a>, care for <a href="https://www.urban.org/research/publication/insights-access-quality-child-care-infants-and-toddlers" target="_blank">infants and toddlers</a>, care for <a href="https://www.urban.org/research/publication/insights-access-quality-child-care-children-disabilities-and-special-needs" target="_blank">children with special needs</a>, and care in underresourced communities); and <a href="https://www.urban.org/research/publication/supporting-child-care-and-early-education-workforce" target="_blank">improve compensation for providers</a>. Finally, local leaders can work with the state subsidy system to make child care subsidies <a href="https://www.urban.org/research/publication/seven-ways-states-can-make-child-care-subsidies-more-accessible-and-equitable" target="_blank">more accessible and equitable</a> by simplifying application processes, coordinating applications and materials across state programs, and expanding eligibility thresholds.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabContent economicResilience">
+          <h4>Economic Resilience</h4>
+          <p>These metrics illustrate residents’ savings, assets, and access to credit, which can help families weather economic shocks, such as a job loss or health emergency.</p>
+
+          <div class="metricContainer">
+            
+            <div class="metricsWrapper">
+              <div class="metric emergencySavings">
+                <h6>Households with at least $2,000 in emergency savings (estimated)</h6>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+
+              <div class="metric creditScore">
+                <h6>Median credit score</h6>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+            
+              <div class="metric inForeclosure">
+                <h6>Mortgage holders who had a foreclosure in the past two years</h6>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+
+              <div class="metric healthInsurance">
+                  <h6>Residents with health insurance coverage</h6>
+                  <p class="metricValue"></p>
+                </div>
+              </div>
+          </div>
+
+          <div class="solutionsContainer">
+            <h5>STRATEGIES FOR LOCAL LEADERS</h5>
+            <div class="solutionsWrapper">
+              <div class="solution">
+                <h6>Protect those at risk of eviction</h6>
+                <p>The COVID-19 pandemic caused economic shocks that threatened the already precarious housing stability of renters with low incomes. Local leaders can protect renters at risk of eviction by instituting local eviction prevention strategies, such as <a href="https://www.urban.org/research/publication/eviction-prevention-and-diversion-programs-early-lessons-pandemic" target="_blank">eviction diversion programs</a> or right-to-counsel laws; ensuring equitable and timely <a href="https://www.urban.org/renters-and-rental-market-crisis-working-group/tracking-emergency-rental-assistance-distribution-and-eviction-protections" target="_blank">disbursement of emergency rental assistance</a> and enacting <a href="https://www.theatlantic.com/politics/archive/2021/10/universal-basic-rent-section-8-voucher/620429/" target="_blank">new forms of rental assistance</a> or <a href="https://www.penncgir.org/" target="_blank">income supports</a> when federal emergency assistance expires; and increasing funding for local housing subsidies. Many cities have experimented with <a href="https://housingmatters.urban.org/articles/municipal-policy-interventions-address-evictions" target="_blank">broader systems changes</a> that can stem evictions. <a href="https://housingmatters.urban.org/articles/how-philanthropy-can-and-cant-help-prevent-evictions-during-pandemic" target="_blank">Philanthropy can also play a role</a> in preventing evictions.</p>
+              </div>
+              <div class="solution">
+                <h6>Help residents build credit safely</h6>
+                <p>City leaders can help residents with no credit or poor credit establish and build credit safely by funding local organizations and community  development  financial institutions to issue credit-building loans, which are often paired with tailored financial coaching. Lawmakers may also require landlords to <a href="https://www.gao.gov/blog/credit-scoring-alternatives-those-without-credit" target="_blank">report rental payments</a> to credit bureaus to help residents improve their credit scores. Some jurisdictions have enacted local ordinances to regulate alternative financial products by capping interest rates and ensuring a borrower’s ability to repay. Doing so can help prevent residents from falling into a cycle of debt. </p>
+              </div>
+              <div class="solution">
+                <h6>Encourage savings</h6>
+                <p>Even a small amount of savings can make a big difference. Families with as little as <a href="https://www.urban.org/urban-wire/wealth-not-just-wealthy" target="_blank">$250 to $749 in savings</a> are less likely to receive public benefits, be evicted, or miss a housing or utility payment after a job loss or other income drop, which also <a href="https://www.urban.org/features/why-cities-should-care-about-family-financial-security" target="_blank">benefits city finances</a>. Liquid savings also contribute to residents’ <a href="https://www.aarp.org/ppi/info-2021/financial-well-being.html" target="_blank">long-term financial health</a>. Pay gaps, occupational segregation, and historical and current job discrimination can affect some residents’ ability to earn enough to save. Local leaders can incentivize and reward liquid savings through <a href="https://www.caab.org/en/caab-expands-emergencysavingsplus-an-innovative-matched-emergency-savings-pilot-program" target="_blank">matched savings</a>, <a href="https://www.aspeninstitute.org/wp-content/uploads/2022/04/ASP-FSW_101Solutions_FINAL_Single1.pdf" target="_blank">sidecar savings</a>, and <a href="https://www.saverlife.org/" target="_blank">nonprofit programs</a>, including programs targeted at boosting the liquid savings of <a href="https://buildcommonwealth.org/news-item/city-of-boston-pilot-program-helps-municipal-employees-build-rainy-day-funds/" target="_blank">municipal employees</a>. Cities can also remove barriers to saving by raising or eliminating asset limits in public benefits programs or encouraging their <a href="https://www.michigan.gov/documents/mdhhs/Asset_tests_QandA_668891_7.pdf" target="_blank">state</a> to do so.</p>
+              </div>
+              <div class="solution">
+                <h6>Assess city employment practices and boost employees’ financial security</h6>
+                <p>City government can take a leadership role in boosting their employees’ financial health, adopting policies and practices that other local employers can model. <a href="https://www.demos.org/research/bad-credit-shouldnt-block-employment-how-make-state-bans-employment-credit-checks-more" target="_blank">Forgoing credit checks in the hiring process</a> could help prospective employees who are struggling financially. City leaders can also establish partnerships with financial institutions to provide <a href="https://www.urban.org/research/publication/employer-sponsored-small-dollar-loans-survey-products-and-employers" target="_blank">small-dollar emergency loans</a> to city employees and safe financial products that make it easy for employees to save. They can also provide emergency assistance for workers through workforce development programming funded by city agencies. These options can enhance employees’ financial security and improve their credit scores as they successfully repay the loan.</p>
+              </div>
+              <div class="solution">
+                <h6>Promote health insurance coverage</h6>
+                <p>Being uninsured can have serious consequences for residents’ physical and financial health. Nationally, 13 percent of adults have <a href="https://apps.urban.org/features/debt-interactive-map/?type=medical&variable=medcoll" target="_blank">medical debt in collections</a>. Black residents are more likely to be uninsured and have <a href="https://www.urban.org/urban-wire/past-due-medical-debt-problem-especially-black-americans" target="_blank">past-due medical debt</a>. In states that did not expand Medicaid, local leaders could help state leaders understand how a high share of uninsured residents affects city financial health and residents’ daily finances.</p>
+              </div>
+              <div class="solution">
+                <h6>Improve access to and awareness of state safety net programs</h6>
+                <p>Residents who are eligible for safety net programs may not be receiving the help they need because they lack the right information, distrust government programs, or face cumbersome barriers to getting and keeping benefits. Local leaders can work with state leaders to expand eligibility and <a href="https://www.urban.org/research/publication/strategies-states-improve-safety-net-program-access-and-efficiency" target="_blank">improve access and program efficiency</a> through technology and business improvements, increased coordination across safety net programs, and information campaigns. Immigrant households in particular may be hesitant to apply for public programs. Local leaders can <a href="https://www.urban.org/urban-wire/how-federal-and-state-leaders-can-reach-immigrants-and-build-their-trust-safety-net" target="_blank">build trust with immigrant communities</a> by partnering with culturally specific organizations on outreach and enrollment, reaching out to immigrant families through mediums they trust, and increasing funding and capacity for enrollment navigators.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tabContent upwardMobility">
+          <h4>Upward Mobility</h4>
+          <p>These metrics illustrate household wealth, which allows residents to pursue opportunities for upward mobility, such as higher education or entrepreneurship.</p>
+
+          <div class="metricContainer">
+            
+            <div class="metricsWrapper">
+              <div class="metric netWorth">
+                <h6>Median net worth (estimated)</h6>
+                <p class="metricValue"></p>
+                <div class="stripchart"></div>
+              </div>
+
+              <div class="metric homeownershipRate">
+                <h6>Homeownership rate</h6>
+                <p class="metricValue"></p>
+              </div>
+            
+              <div class="metric homeValue">
+                <h6>Median home value among homeowners</h6>
+                <p class="metricValue"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="solutionsContainer">
+            <h5>STRATEGIES FOR LOCAL LEADERS</h5>
+            <div class="solutionsWrapper">
+              <div class="solution">
+                <h6>Support programs that help residents build wealth and assets</h6>
+                <p>To help residents pursue opportunities for upward mobility, local leaders can remove barriers to wealth building and promote asset development at the individual and community levels. Building on the success of <a href="https://www.urban.org/research/publication/households-low-incomes-can-save-evidence-and-lessons-matched-savings-programs-us-and-italy" target="_blank">matched-savings programs</a> like individual development accounts and <a href="https://csd.wustl.edu/child-development-accounts/" target="_blank">child savings accounts</a>, several local leaders are considering <a href="https://next50.urban.org/article/shrinking-racial-wealth-gap-without-focusing-race-interview-kirwan-institutes-darrick" target="_blank">baby bonds</a> programs. These trust accounts hold promise as a powerful investment in young people from households of little-to-no wealth, which are disproportionately Black, Hispanic, Native American, and immigrant households. Local jurisdictions can also pursue <a href="https://www.urban.org/research/publication/community-wealth-building-models" target="_blank">community wealth-building</a> strategies and advocate for more equitable and transparent investment of <a href="https://www.urban.org/research/publication/new-era-racial-equity-community-development-finance" target="_blank">community development capital</a> from private and philanthropic entities.</p>
+              </div>
+              <div class="solution">
+                <h6>Promote homeownership and protect homeowners</h6>
+                <p>Homeownership is an important vehicle for building wealth and financial stability, but a long history of racist policies and practices like redlining, restrictive covenants, urban renewal, inequitable access to insurance, and segregation have blocked households of color—particularly Black households—from homeownership opportunities. Local leaders can help residents achieve homeownership by offering <a href="https://www.nalhfa.org/home-buyer-resources" target="_blank">down payment and closing cost assistance</a>; providing loans and <a href="https://www.dchfa.org/lenders/dc-open-doors/" target="_blank">below-market interest rates</a> to boost affordability and housing equity accumulation; and promoting land trusts, co-ops, and shared equity housing alongside <a href="https://www.urban.org/research/publication/neighborworks-americas-homeownership-education-and-counseling-who-receives-it-and-it-effective" target="_blank">homeownership education and counseling</a>.</p>
+                <p>Local leaders can also <a href="https://www.urban.org/research/publication/policies-and-programs-inclusive-and-equitable-recovery" target="_blank">reform</a> property taxes by introducing more progressive tax approaches, subsidies, or rebates. They can also reform assessment processes to ensure they do not disproportionately burden residents with low incomes, for example by increasing the frequency of assessments, eliminating assessment limits, and reforming appeals processes. Lastly, local leaders can prompt state policymakers to ensure that the federal Homeowner Assistance Fund <a href="https://www.urban.org/urban-wire/uneven-recoveries-can-build-long-term-racial-and-ethnic-disparities-housing" target="_blank">stabilizes households with low incomes and households of color</a> as intended and helps <a href="https://www.urban.org/research/publication/how-economic-crises-and-sudden-disasters-increase-racial-disparities-homeownership" target="_blank">prevent racial disparities from worsening</a>. In addition, because Black and Hispanic homeowners are more likely to live in <a href="https://www.urban.org/research/publication/pandemic-homeowners-color-faced-structural-barriers-benefits-homeownership" target="_blank">inadequate housing</a>, <a href="https://www.urban.org/urban-wire/housing-trends-newark-new-jersey-illustrate-how-covid-19-recession-has-affected-black-and-hispanic-homeowners" target="_blank">access to funds for home repairs</a> could help them maintain homeownership.</p>
+              </div>
+              <div class="solution">
+                <h6>Resolve heirs’ property issues</h6>
+                <p>Some residents, particularly Black families in the South and residents in central Appalachia, hold or have lost land handed down from previous generations without a clear title or legal document proving ownership. Residents with this type of inherited property, known as <a href="https://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2015/07/15/heirs-property-challenges-families-states" target="_blank">heirs’ property</a>, may be unable to secure a mortgage or home improvement loan but are responsible for taxes and other liabilities and can have their property taken away through court-ordered sales. One estimate states that heirs’ property makes up <a href="https://features.propublica.org/black-land-loss/heirs-property-rights-why-black-families-lose-land-south/" target="_blank">more than a third of Southern Black-owned land</a>. Local leaders can help residents navigate the legal process to resolve land ownership through legal education and heirs’ property resolution services.</p>
+              </div>
+              <div class="solution">
+                <h6>Support students during and after college and ensure programs advance upward mobility</h6>
+                <p>Black and Hispanic students are more likely than their white peers to <a href="https://tcf.org/content/report/bridging-progressive-policy-debates-student-debt-racial-wealth-gap-reinforce/?agreed=1" target="_blank">drop out of college</a>. Structural inequities in K–12 education can leave these students less prepared for college. They’re also more likely to have competing financial priorities and attend an underresourced college without vital student supports. When combined with generational wealth gaps, occupational segregation, and racial discrimination in the job market, these barriers affect students’ ability to pay back student loans and leverage their degrees.</p>
+                <p>To ensure higher education delivers on its potential for upward mobility, local leaders can explore which programs and fields of study are delivering for students and invest in <a href="https://oaklandpromise.org/college-completion/" target="_blank">mentorship, sustained scholarships, and guidance counseling</a>. Leaders can also create <a href="https://collegefutures.org/ca-college-student-emergency-support-fund/#:~:text=The%20California%20College%20Student%20Emergency,%24500%20hardship%20grants%20to%20students." target="_blank">emergency aid funds</a> to help students with unexpected costs that might otherwise force them to drop out. Local leaders can also promote a feeling of belonging in schools by elevating student voices and designing programs—with student input—that offer financial, personal, and academic supports. And support can continue after graduation: local leaders can help build <a href="https://www.urban.org/urban-wire/four-strategies-community-colleges-are-using-connect-their-students-employment" target="_blank">partnerships between employers and colleges</a> so students are preparing for and can obtain high-quality, in-demand jobs in their community.</p>
+              </div>
+              <div class="solution">
+                <h6>Offer sector-based skills training for in-demand jobs</h6>
+                <p>Historical discrimination in hiring has resulted in occupational segregation, with women and people of color underrepresented in jobs that provide family-sustaining wages and benefits. To improve access to quality jobs, leaders of local workforce agency and workforce development boards can leverage government, private, and philanthropic funding and programs like <a href="https://www.urban.org/research/publication/virtue-apprenticeship" target="_blank">apprenticeships</a> (including <a href="https://www.urban.org/research/publication/public-sector-apprenticeship-improving-work-governments-and-residents#:~:text=Public%20sector%20apprenticeships%20are%20a,from%20an%20infusion%20of%20talent." target="_blank">public sector</a> apprenticeships) to provide job training in growth sectors like <a href="https://www.baltimorealliance.org/" target="_blank">health care</a>, <a href="https://www.techtalentpipeline.nyc/" target="_blank">technology</a>, and key <a href="https://wrtp.org/" target="_blank">regional industries</a>. Partnering with high schools and community colleges, training providers, business groups, and employers will ensure that the training is aligned with employer needs and offers access to jobs. Local leaders can improve equity outcomes by actively recruiting women and workers of color and providing support services, like transportation stipends and child care, to reduce barriers to participation. Local program leaders can also create new service models that allow for remote training.</p>
+              </div>
+              <div class="solution">
+                <h6>Leverage workforce investments to improve job quality</h6>
+                <p>Local leaders can prioritize <a href="https://www.urban.org/research/publication/job-quality-and-economic-mobility-potential-mechanisms-empirical-approach-and-directions-research" target="_blank">job quality</a> across workforce programs to increase the number of jobs with family-sustaining wages and benefits. Workforce programs can <a href="https://www.urban.org/research/publication/strategies-workforce-recovery-response-current-crisis" target="_blank">center job-quality goals</a> by increasing employee ownership, engaging with employers that meet certain job-quality requirements, training job seekers on job-quality fundamentals, and integrating job-quality requirements in subrecipient contracts. Local governments can set higher standards for job quality through their own practices and policies, including using business incentives like special tax credits to ensure that new jobs are located near transit hubs, meet living-wage standards, and focus on harder-to-employ populations. Local leaders can also help <a href="https://nationalfund.org/wp-content/uploads/2021/01/Advancing-Workforce-Equity_Chicago.pdf" target="_blank">elevate worker voice and power</a>, ensuring they have a voice in all these efforts.</p>
+              </div>
+              <div class="solution">
+                <h6>Support the future workforce by investing in youth and young adults</h6>
+                <p>Government and philanthropic leaders can <a href="https://www.urban.org/research/publication/exploring-approaches-increase-economic-opportunity-young-men-color-10-year-review" target="_blank">develop programs for young people</a> through “earn and learn” opportunities <a href="https://theurbanalliance.org/" target="_blank">during the school year</a>, <a href="https://www.urban.org/research/publication/employer-engagement-summer-youth-employment-programs" target="_blank">the summer</a>, or <a href="https://www.abtassociates.com/insights/publications/report/benefits-that-last-long-term-impact-and-cost-benefit-findings-for-year" target="_blank">after graduation</a>. These programs can help teens and young adults gain valuable access to job training. Local government can partner with philanthropy and business leaders to enhance these programs with culturally appropriate support services, such as expanded outreach efforts, mentorship and career navigation services, and stipends or earning opportunities. Some programs also connect young people with a safe, low-cost financial account at a bank or credit union to help them save what they earn.</p>
+              </div>
+              <div class="solution">
+                <h6>Support successful reentry for those with criminal legal system involvement</h6>
+                <p>Being involved with the criminal legal system can harm people’s financial stability and prevent their upward mobility. Local leaders can pursue a <a href="https://nationalreentryresourcecenter.org/resources/toolkits/reentry" target="_blank">range of approaches</a> for helping people released from incarceration, including strategies to increase <a href="https://www.urban.org/projects/breaking-links-between-housing-instability-and-jail-incarceration-through-just-home" target="_blank">housing stability</a> and <a href="https://www.ncsl.org/research/civil-and-criminal-justice/providing-identification-for-those-released-from-incarceration.aspx" target="_blank">access to identification documents</a> following release. Having a job can also help ensure a <a href="https://whatworks.csgjusticecenter.org/" target="_blank">successful transition</a> from prison or jail and prevent future criminal legal system involvement. To connect people with jobs, local government leaders can coordinate with jails and prisons, corrections and community supervision agencies, nonprofits serving justice-involved people, and employers that are hiring or interested in offering subsidized jobs. Local workforce leaders can advocate for apprenticeship or pre-apprenticeship programs to enlist people who are about to be released, ensure workforce development efforts include legal system outreach, and encourage employers to be open to hiring those with criminal records. Lastly, local leaders can explore ways to <a href="https://www.urban.org/research/publication/children-incarcerated-parents-framework-document-promising-practices-challenges-and-recommendations-field" target="_blank">support the families and children</a> of those involved in the criminal legal system.</p>
+              </div>
+              <div class="solution">
+                <h6>Support small business growth and recovery</h6>
+                <p>To <a href="https://www.urban.org/research/publication/best-practices-small-business-recovery-inform-equitable-covid-19-recovery" target="_blank">aid small businesses recovering from the pandemic</a>, local leaders can leverage state and federal investments to administer small business recovery and resiliency grants. And to help financially vulnerable businesses access capital, local leaders can support and scale <a href="https://www.urban.org/events/past-and-future-investing-cdfis-expand-lending-diverse-small-business-owners" target="_blank">community development financial institution</a> products and directly underwrite credit enhancements or loan guarantees. In addition, local leaders can provide culturally tailored <a href="https://www.urban.org/research/publication/supporting-latino-and-immigrant-entrepreneurs-time-crisis" target="_blank">technical assistance</a>, create resource hubs for comprehensive business assistance, cultivate business entrepreneurship and training opportunities, and provide access to <a href="https://www.connect2capital.com/" target="_blank">technology</a> that can democratize access to financial and informational resources.</p>
+              </div>
+              <div class="solution">
+                <h6>Strengthen the small business ecosystem</h6>
+                <p>City and county policymakers can leverage the purchasing power of local government to support and invest in local small businesses, particularly those owned by women and people of color. They can also use their real estate assets to provide low-cost leases to small businesses getting off the ground and offer spaces for small businesses to showcase their goods or services and connect with new customers. Local government leaders can also ensure that any new funding is targeted to neighborhoods that have been historically locked out of investment. For example, Chicago’s <a href="https://neighborhoodopportunityfund.com/#/?address=undefined" target="_blank">Neighborhood Opportunity Fund</a> offers competitive grant funding to small-business owners, property owners, landlords, and nonprofits in underresourced commercial corridors.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/d3.v4.min.js"></script>
+  <script src="js/print.js"></script>
+
+</body>
+</html>
