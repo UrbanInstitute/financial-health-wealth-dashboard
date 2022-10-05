@@ -15,18 +15,20 @@ state_comp <- read_csv("source/final_financial_health_and_wealth_dashboard_resul
 state_mapping <- select(state_comp, `state full name`, `state code`, `state name`)
   
 state_comp <- state_comp %>%
-  select(-`state code`, -`state name`) %>%
-  rename("geo_name" = `state full name`)
+  select(-`state name`) %>%
+  rename("geo_name" = `state full name`,
+         "geo_id" = `state code`)
 
-city_comp <- read_csv("source/final_financial_health_and_wealth_dashboard_results_2022/city_racial_compositions.csv") %>%
-  select(-`state code`, -`state name`) %>%
-  rename("geo_name" = `city name`)
+# city_comp <- read_csv("source/final_financial_health_and_wealth_dashboard_results_2022/city_racial_compositions.csv") %>%
+#   select(-`state code`, -`state name`) %>%
+#   rename("geo_name" = `city name`)
 
-puma_comp <- read_csv("source/final_financial_health_and_wealth_dashboard_results_2022/puma_racial_compositions_final.csv") %>%
-  select(-state_puma, -puma, -`state code`, -`city_name`) %>%
-  rename("geo_name" = `puma10_name`)
+puma_comp <- read_csv("source/final_financial_health_and_wealth_dashboard_results_2022/puma_racial_compositions_final_v2.csv") %>%
+  select(-puma, -`state code`, -`city_name`, -state) %>%
+  rename("geo_name" = `puma10_name`,
+         "geo_id" = state_puma)
 
-racial_comp_data <- bind_rows(us_comp, state_comp, city_comp, puma_comp) %>%
+racial_comp_data <- bind_rows(us_comp, state_comp, puma_comp) %>%
   pivot_longer(cols = `AAPI, non-Hispanic`:`white, non-Hispanic`,
                names_to = "race",
                values_to = "share") %>%
@@ -79,8 +81,9 @@ city_credit <- read_csv("source/final_financial_health_and_wealth_dashboard_resu
   mutate(geo_name = replace(geo_name, geo_name == "Corpus Christi", "Corpus Christi, TX")) %>%
   mutate(geo_level = "city")
 
-puma <- read_csv("source/puma_v2.csv",
-                 na = c("NA", "", "n/a*")) %>%
+puma <- read_csv("source/final_financial_health_and_wealth_dashboard_results_2022/puma_v2.csv",
+                 na = c("NA", "", "n/a*"),
+                 ) %>%
   rename(`median net worth` = median_net_worth,
          `at least 2000 emergency savings` = `share_of_households_with_at_least_$2000_emergency_savings`,
          has_delinq_pct = share_of_people_with_delinquent_debt,
@@ -184,7 +187,7 @@ cities <- cities_geojson %>%
   mutate(label = ifelse(has_bonus_info == 1, paste0(label, "*"), label))
 
 
-zipcodes <- read_excel("source/puma_zipcode_crosswalk.xlsx",
+zipcodes <- read_excel("source/puma_zipcode_crosswalk_v2.xlsx",
                        col_types = c("text", "numeric", "text", "numeric", "text", "text", "text", "text", "text", "numeric", "numeric"))
 
 zipcodes_search <- zipcodes %>%

@@ -1374,8 +1374,8 @@ puma_id,state_id,puma_num,puma_name,city,state_name,state_abbv,has_bonus_info
 3500805,35,805,"Albuquerque City (Northwest Mesa), Paradise Hills & Navajo Nation-Tohajiilee Chapter","Albuquerque, NM",New Mexico,NM,1
 3500806,35,806,Albuquerque City (Southwest Mesa) & Bernalillo County (Southwest Mesa & South Valley),"Albuquerque, NM",New Mexico,NM,1
 3500900,35,900,Southwest New Mexico,NA,New Mexico,NM,NA
-3501001,35,1001,DoÃ±a Ana County (Outer),NA,New Mexico,NM,NA
-3501002,35,1002,"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park","Las Cruces, NM",New Mexico,NM,NA
+3501001,35,1001,Doña Ana County (Outer),NA,New Mexico,NM,NA
+3501002,35,1002,"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park","Las Cruces, NM",New Mexico,NM,NA
 3501100,35,1100,Central Southeast New Mexico,NA,New Mexico,NM,NA
 3501200,35,1200,Far Southeast New Mexico,NA,New Mexico,NM,NA
 3600100,36,100,St. Lawrence County,NA,New York,NY,NA

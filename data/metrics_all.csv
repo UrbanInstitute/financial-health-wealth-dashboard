@@ -14009,26 +14009,26 @@ Southwest New Mexico,3500900,PUMA,share_of_student_loan_holders_with_delinquent_
 Southwest New Mexico,3500900,PUMA,had_foreclosure_2yr_pct,0.0014
 Southwest New Mexico,3500900,PUMA,share_of_low_income_households_with_housing_cost_burden,0.4318
 Southwest New Mexico,3500900,PUMA,share_of_people_with_health_insurance,0.9253
-DoÃ±a Ana County (Outer),3501001,PUMA,median net worth,85633.063
-DoÃ±a Ana County (Outer),3501001,PUMA,homeownership_rate,0.7661
-DoÃ±a Ana County (Outer),3501001,PUMA,median_home_value_among_homeowners,150000
-DoÃ±a Ana County (Outer),3501001,PUMA,at least 2000 emergency savings,0.5225
-DoÃ±a Ana County (Outer),3501001,PUMA,score_cleanpos_p50,675
-DoÃ±a Ana County (Outer),3501001,PUMA,has_delinq_pct,0.3446
-DoÃ±a Ana County (Outer),3501001,PUMA,share_of_student_loan_holders_with_delinquent_student_loans,0.1408
-DoÃ±a Ana County (Outer),3501001,PUMA,had_foreclosure_2yr_pct,0.0022
-DoÃ±a Ana County (Outer),3501001,PUMA,share_of_low_income_households_with_housing_cost_burden,0.4215
-DoÃ±a Ana County (Outer),3501001,PUMA,share_of_people_with_health_insurance,0.8574
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,median net worth,40592.926
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,homeownership_rate,0.5545
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,median_home_value_among_homeowners,160000
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,at least 2000 emergency savings,0.5601
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,score_cleanpos_p50,NA
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,has_delinq_pct,NA
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,share_of_student_loan_holders_with_delinquent_student_loans,NA
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,had_foreclosure_2yr_pct,NA
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,share_of_low_income_households_with_housing_cost_burden,0.6365
-"DoÃ±a Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,share_of_people_with_health_insurance,0.9056
+Doña Ana County (Outer),3501001,PUMA,median net worth,85633.063
+Doña Ana County (Outer),3501001,PUMA,homeownership_rate,0.7661
+Doña Ana County (Outer),3501001,PUMA,median_home_value_among_homeowners,150000
+Doña Ana County (Outer),3501001,PUMA,at least 2000 emergency savings,0.5225
+Doña Ana County (Outer),3501001,PUMA,score_cleanpos_p50,675
+Doña Ana County (Outer),3501001,PUMA,has_delinq_pct,0.3446
+Doña Ana County (Outer),3501001,PUMA,share_of_student_loan_holders_with_delinquent_student_loans,0.1408
+Doña Ana County (Outer),3501001,PUMA,had_foreclosure_2yr_pct,0.0022
+Doña Ana County (Outer),3501001,PUMA,share_of_low_income_households_with_housing_cost_burden,0.4215
+Doña Ana County (Outer),3501001,PUMA,share_of_people_with_health_insurance,0.8574
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,median net worth,40592.926
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,homeownership_rate,0.5545
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,median_home_value_among_homeowners,160000
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,at least 2000 emergency savings,0.5601
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,score_cleanpos_p50,NA
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,has_delinq_pct,NA
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,share_of_student_loan_holders_with_delinquent_student_loans,NA
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,had_foreclosure_2yr_pct,NA
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,share_of_low_income_households_with_housing_cost_burden,0.6365
+"Doña Ana County (Central)--Las Cruces, Mesilla Cities & University Park",3501002,PUMA,share_of_people_with_health_insurance,0.9056
 Central Southeast New Mexico,3501100,PUMA,median net worth,65926.789
 Central Southeast New Mexico,3501100,PUMA,homeownership_rate,0.6778
 Central Southeast New Mexico,3501100,PUMA,median_home_value_among_homeowners,120000

@@ -103,12 +103,12 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 }
 
 d3.queue()
-  .defer(d3.csv, "data/racial_comp_data.csv")  // this file needs to be updated with correct PUMA names
-  .defer(d3.csv, "data/metrics_all.csv")  // this too
+  .defer(d3.csv, "data/racial_comp_data.csv")
+  .defer(d3.csv, "data/metrics_all.csv")
   .defer(d3.csv, "data/city_state_us_racial_metrics.csv")
   .defer(d3.csv, "data/search_data.csv")
-  .defer(d3.csv, "data/puma_city_state_mapping.csv")  // this too
-  .defer(d3.csv, "data/pumas_zipcode.csv") // this too
+  .defer(d3.csv, "data/puma_city_state_mapping.csv")
+  .defer(d3.csv, "data/pumas_zipcode.csv")
   .defer(d3.json, "data/pumas_bboxes.json")
   .defer(d3.json, "data/cities_bboxes.json")
   .await(function(error, racial_comp_data, metrics_all, city_state_us_racial_metrics, search_data, puma_city_state_mapping, pumas_zipcode, pumas_bboxes, cities_bboxes) {
@@ -116,7 +116,8 @@ d3.queue()
     if(error) throw error;
 
     racial_comp_data.forEach(function(d) {
-      d.share = +d.share
+      d.share = +d.share,
+      d.geo_id = +d.geo_id
     });
 
     metrics_all.forEach(function(d) {
@@ -212,12 +213,6 @@ dispatch.on("load.searchbox", function(racial_comp_data, metrics_all, city_state
           d3.select(".dashboard").classed("inactive", true);
         }
       }
-      // open: function( event, ui ) {
-      //     d3.select("#magnifyGlass").style("visibility", "hidden");
-      // },
-      // close: function( event, ui ) {
-      //     d3.select("#magnifyGlass").style("visibility", "visible");
-      // }
     });
 });
 
@@ -301,7 +296,6 @@ dispatch.on("load.map", function(racial_comp_data, metrics_all, city_state_us_ra
       d3.select(".zipCodeLocated").classed("invisible", true);
       var numPumasInGeo = selected_geo_level === "City" && puma_city_state_mapping.filter(function(d) { return d.city === selected_geo_name && d.puma_name !== "NA"; }).length;
       var text = "This city contains " + numPumasInGeo + (numPumasInGeo !== 1 ? " PUMAs" : " PUMA");
-      // var hasBonusInfoText = '<span class="hasBonusData"> and has <span class="highlight">bonus data</span></span>';
       d3.select(".searchResults .numPumasInGeo .text").html(text + (has_bonus_info == 0 ? '.' : ''));
       if(has_bonus_info == 1) {
         d3.select(".searchResults .hasBonusData").classed("hidden", false)
@@ -548,7 +542,6 @@ dispatch.on("load.racialCompositionCharts", function(racial_comp_data, metrics_a
         return puma_city_state_mapping.filter(function(d) { return d.puma_id === puma_id; })[0].state_name
       }
     }
-    // var state = selected_geo_level === "City" ? puma_city_state_mapping.filter(function(d) { return d.city === selected_geo_name; })[0].state_name : null;
     var state = getState(selected_geo_id, selected_geo_level);
     stateData = racial_comp_data.filter(function(d) { return d.geo_name === state; });
     
@@ -598,7 +591,7 @@ dispatch.on("load.racialCompositionCharts", function(racial_comp_data, metrics_a
   });
 
   dispatch.on("pumaSelected.racialCompositionCharts", function(selected_geo_id, selected_geo_name, zipcodeSearch, source) {
-    pumaData = racial_comp_data.filter(function(d) { return d.geo_name === selected_geo_name;});
+    pumaData = racial_comp_data.filter(function(d) { return d.geo_id === selected_geo_id;});
     pumaBarChart.data(pumaData).showAxis(true);
     pumaSvg.call(pumaBarChart);
 
@@ -766,7 +759,7 @@ dispatch.on("load.dashboard", function(racial_comp_data, metrics_all, city_state
     d3.select(".buttons a").attr("href", "./print.html?puma_id=" + selected_geo_id);
     d3.select(".buttons").classed("disabled", false);
 
-    data = metrics_all.filter(function(d) { return d.geo_name === "USA" || d.geo_name === selectedState || d.geo_name === selected_geo_name});
+    data = metrics_all.filter(function(d) { return d.geo_name === "USA" || d.geo_name === selectedState || +d.geo_id === selected_geo_id});
 
     delinquentDebtChart.data(data.filter(function(d) { return d.metric === "has_delinq_pct"; }));  
     delinquentDebtSvg.call(delinquentDebtChart);
